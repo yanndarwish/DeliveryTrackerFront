@@ -1,18 +1,13 @@
-const colors = require('tailwindcss/colors');
+const twElements = require('tw-elements/dist/plugin.cjs');
 
 module.exports = {
-  content: ['./src/renderer/**/*.{js,jsx,ts,tsx,ejs}'],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {
-      colors: {
-        sky: colors.sky,
-        cyan: colors.cyan,
-      },
-    },
-  },
+  content: [
+    './src/renderer/**/*.{js,jsx,ts,tsx,ejs}',
+    './node_modules/tw-elements/dist/js/**/*.js',
+  ],
+  darkMode: 'class', // or 'media' or 'class'
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [twElements],
 };
