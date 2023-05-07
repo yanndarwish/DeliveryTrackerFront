@@ -19,7 +19,7 @@ const Navbar = () => {
         >
           <IoMdMenu size={24} />
         </button>
-
+        <div className="invisible"></div>
         <button
           className="p-1 rounded-full focus:outline-emerald-500 text-emerald-500 bg-neutral-800 hover:bg-neutral-700 focus:bg-neutral-700"
           aria-controls="#create-delivery-panel"
