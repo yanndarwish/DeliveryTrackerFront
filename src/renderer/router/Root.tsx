@@ -25,7 +25,7 @@ const Root = () => {
           <Sidebar user={user} />
         </header>
         {/* Content */}
-        <main>
+        <main id="content">
           <div className="container">
             <Outlet />
           </div>

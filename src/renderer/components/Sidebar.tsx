@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { User } from 'renderer/interfaces';
 import { Sidenav, Dropdown, Ripple, initTE } from 'tw-elements';
@@ -62,7 +62,9 @@ const Sidebar = (props: ISidebarProps) => {
           alt="TE Logo"
           draggable="false"
         />
-        <span className="uppercase text-white font-medium">{props.user.name}</span>
+        <span className="uppercase text-white font-medium">
+          {props.user.name}
+        </span>
       </a>
 
       <ul className="relative m-0 list-none px-4" data-te-sidenav-menu-ref>
@@ -70,12 +72,14 @@ const Sidebar = (props: ISidebarProps) => {
           <li
             key={i}
             className={`relative tracking-wider font-normal ${
-              location === link.url ? ' text-emerald-500 font-semibold border-l-2 border-emerald-500' : ' text-neutral-500'
+              location === link.url
+                ? ' text-emerald-500 font-semibold border-l-2 border-emerald-500'
+                : ' text-neutral-500'
             }`}
           >
-            <a
+            <Link
               className="group flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] outline-none transition duration-300 ease-linear hover:text-white hover:outline-none focus:text-white focus:outline-none active:text-white active:outline-none data-[te-sidenav-state-active]:text-white data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none hover:bg-white/5 focus:bg-white/5 active:bg-white/5"
-              href={link.url as string}
+              to={link.url as string}
               data-te-sidenav-link-ref
             >
               <span
@@ -88,7 +92,7 @@ const Sidebar = (props: ISidebarProps) => {
                 {link.icon}
               </span>
               <span>{link.title}</span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
