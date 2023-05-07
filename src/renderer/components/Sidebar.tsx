@@ -70,7 +70,7 @@ const Sidebar = (props: ISidebarProps) => {
           <li
             key={i}
             className={`relative tracking-wider font-normal ${
-              location === link.url ? ' text-emerald-500 font-semibold' : ' text-neutral-500'
+              location === link.url ? ' text-emerald-500 font-semibold border-l-2 border-emerald-500' : ' text-neutral-500'
             }`}
           >
             <a
