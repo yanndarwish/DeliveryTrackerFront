@@ -41,7 +41,7 @@ const Sidebar = (props: ISidebarProps) => {
   return (
     <nav
       id="sidenav-1"
-      className="fixed left-0 top-0 z-[1035] h-screen w-60 -translate-x-full overflow-hidden border-r-[0.5px] border-slate-400/20 bg-slate-900 xl:data-[te-sidenav-hidden='false']:translate-x-0"
+      className="fixed left-0 top-0 z-[1035] h-screen w-60 -translate-x-full overflow-hidden bg-neutral-800 xl:data-[te-sidenav-hidden='false']:translate-x-0"
       data-te-sidenav-init
       data-te-sidenav-hidden="false"
       data-te-sidenav-mode-breakpoint-over="0"
@@ -62,7 +62,7 @@ const Sidebar = (props: ISidebarProps) => {
           alt="TE Logo"
           draggable="false"
         />
-        <span className="uppercase text-white">{props.user.name}</span>
+        <span className="uppercase text-white font-medium">{props.user.name}</span>
       </a>
 
       <ul className="relative m-0 list-none px-4" data-te-sidenav-menu-ref>
@@ -70,19 +70,19 @@ const Sidebar = (props: ISidebarProps) => {
           <li
             key={i}
             className={`relative tracking-wider font-normal ${
-              location === link.url ? ' text-sky-400 font-semibold' : ' text-slate-500'
+              location === link.url ? ' text-emerald-500 font-semibold' : ' text-neutral-500'
             }`}
           >
             <a
-              className="group flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] outline-none transition duration-300 ease-linear hover:text-white hover:outline-none focus:text-white focus:outline-none active:text-white active:outline-none data-[te-sidenav-state-active]:text-white data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none hover:bg-white/10 focus:bg-white/10 active:bg-white/10"
+              className="group flex h-12 cursor-pointer items-center truncate rounded-[5px] px-6 py-4 text-[0.875rem] outline-none transition duration-300 ease-linear hover:text-white hover:outline-none focus:text-white focus:outline-none active:text-white active:outline-none data-[te-sidenav-state-active]:text-white data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none hover:bg-white/5 focus:bg-white/5 active:bg-white/5"
               href={link.url as string}
               data-te-sidenav-link-ref
             >
               <span
                 className={`mr-4 [&>svg]:h-3.5 [&>svg]:w-3.5 [&>svg]:transition [&>svg]:duration-300 [&>svg]:ease-linear group-hover:[&>svg]:fill-white group-focus:[&>svg]:fill-white group-active:[&>svg]:fill-white group-[te-sidenav-state-active]:[&>svg]:fill-white motion-reduce:[&>svg]:transition-none ${
                   location === link.url
-                    ? ' [&>svg]:fill-sky-400'
-                    : ' [&>svg]:fill-slate-500'
+                    ? ' [&>svg]:fill-emerald-500'
+                    : ' [&>svg]:fill-neutral-500'
                 }`}
               >
                 {link.icon}
