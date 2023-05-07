@@ -1,36 +1,28 @@
 // react router, redux, react
-import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useAppSelector } from 'renderer/redux/hooks';
 import { useEffect } from 'react';
 // components
 import Sidebar from 'renderer/components/Sidebar';
 import Navbar from 'renderer/components/Navbar';
-// import CreateJob from 'renderer/components/CreateJob';
-// icons
-// import { MdAdd } from 'react-icons/md';
 
 const Root = () => {
-  const location = useLocation();
   const navigate = useNavigate();
-
-  //   const isLoggedIn = useSelector((state: any) => state.authSlice.loggedIn);
-  //   const name = useSelector((state: any) => state.authSlice.name);
-  const json = localStorage.getItem('user');
-  const user = json && JSON.parse(json);
+  const user = useAppSelector((state) => state.user.user);
 
   console.log(user);
 
   useEffect(() => {
-    !user && navigate('/login');
+    !user._id && navigate('/login');
   }, [user]);
 
   return (
     user && (
-      <div className="h-screen bg-slate-900 [&>*]:leading-[1.6]">
+      <div className="h-screen bg-neutral-900 [&>*]:leading-[1.6]">
         {/* Navbar */}
         <header>
-          <Sidebar user={user}/>
           <Navbar />
+          <Sidebar user={user} />
         </header>
         {/* Content */}
         <main>
