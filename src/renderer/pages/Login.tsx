@@ -5,7 +5,7 @@ import { IoMdAdd } from 'react-icons/io';
 import { setUser } from 'renderer/redux/features/userSlice';
 import { useGetUsersQuery } from 'renderer/redux/services/users';
 import SidePanel from 'renderer/components/globals/SidePanel';
-import CreateUser from 'renderer/components/CreateUser';
+import CreateUser from 'renderer/components/CreateUserForm';
 import { useState } from 'react';
 
 const Login = () => {
