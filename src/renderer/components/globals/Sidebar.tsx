@@ -2,7 +2,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { User } from 'renderer/interfaces';
 import { Sidenav, Dropdown, Ripple, initTE } from 'tw-elements';
-import { links } from '../sidebarLinks';
+import { links } from '../../sidebarLinks';
 export interface ISidebarProps {
   user: User;
 }
@@ -53,7 +53,7 @@ const Sidebar = (props: ISidebarProps) => {
         className="mb-3 flex items-center justify-center py-6 outline-none"
         href="#"
         data-te-ripple-init
-        data-te-ripple-color="sky"
+        data-te-ripple-color="dark"
       >
         <img
           id="te-logo"
