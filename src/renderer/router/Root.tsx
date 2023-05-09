@@ -3,8 +3,8 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { useAppSelector } from 'renderer/redux/hooks';
 import { useEffect } from 'react';
 // components
-import Sidebar from 'renderer/components/Sidebar';
-import Navbar from 'renderer/components/Navbar';
+import Sidebar from 'renderer/components/globals/Sidebar';
+import Navbar from 'renderer/components/globals/Navbar';
 
 const Root = () => {
   const navigate = useNavigate();
