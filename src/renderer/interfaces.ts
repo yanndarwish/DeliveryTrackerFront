@@ -1,11 +1,14 @@
-export interface MetaData {
+interface IDData {
   _id: string;
   __v: number;
 }
 
-export interface FullMetaData extends MetaData {
-  active: boolean;
+interface InfoData extends IDData {
+  active?: boolean;
   createdBy: string;
+}
+
+interface MetaData extends InfoData {
   createdAt: string;
   updatedAt: string;
 }
@@ -14,15 +17,16 @@ export interface PostUser {
   name: string;
 }
 
-export type User = PostUser & MetaData;
+export type User = PostUser & IDData;
 
 export interface PostDriver {
   firstName: string;
   lastName: string;
+  email?: string;
   phone: string;
 }
 
-export type Driver = PostDriver & FullMetaData;
+export type Driver = PostDriver & MetaData;
 
 export interface PostClient {
   name: string;
@@ -30,9 +34,10 @@ export interface PostClient {
   streetName: string;
   postalCode: string;
   city: string;
+  country?: string;
 }
 
-export type Client = PostClient & FullMetaData;
+export type Client = PostClient & MetaData;
 
 export interface PostVehicle {
   brand: string;
@@ -40,7 +45,18 @@ export interface PostVehicle {
   immatriculation: string;
 }
 
-export type Vehicle = PostVehicle & FullMetaData;
+export type Vehicle = PostVehicle & MetaData;
+
+export interface PostProvider {
+  name: string;
+  wharehouse?: string;
+  headquarter?: string;
+  contactName: string;
+  contactPhone?: string;
+  contactEmail?: string;
+}
+
+export type Provider = PostProvider & MetaData;
 
 export interface Link {
   title: string;

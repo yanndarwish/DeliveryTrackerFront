@@ -6,6 +6,7 @@ import { usersApi } from '../services/users';
 import { driversApi } from '../services/drivers';
 import { clientsApi } from '../services/clients';
 import { vehiclesApi } from '../services/vehicles';
+import { providersApi } from '../services/providers';
 
 export const store = configureStore({
   reducer: rootReducer,
@@ -14,7 +15,8 @@ export const store = configureStore({
       usersApi.middleware,
       driversApi.middleware,
       clientsApi.middleware,
-      vehiclesApi.middleware
+      vehiclesApi.middleware,
+      providersApi.middleware
     ),
 });
 
