@@ -29,7 +29,7 @@ const Login = () => {
         {data?.users?.map((user, i) => (
           <button
             key={i}
-            className="cursor-pointer duration-300 flex items-center justify-center rounded-xl p-6 bg-neutral-800 text-neutral-300 border border-black/5 highlight-white/5 hover:bg-neutral-700/50 hover:text-emerald-500 focus:outline-emerald-500 focus:text-emerald-500 w-40 h-40"
+            className="cursor-pointer flex items-center justify-center rounded-xl p-6 bg-neutral-800 text-neutral-300 hover:border border-emerald-500 hover:bg-neutral-700/50 hover:text-emerald-500 focus:outline-emerald-500 focus:text-emerald-500 w-40 h-40"
             onClick={() => handleClick(user)}
           >
             <h5 className="text-xl font-semibold leading-6 uppercase text-center">
@@ -39,7 +39,7 @@ const Login = () => {
         ))}
       </div>
       <button
-        className="p-5 rounded-full text-neutral-400 focus:outline-emerald-500 hover:text-emerald-500 focus:text-emerald-500 bg-neutral-800/50 hover:bg-neutral-700/50 focus:bg-neutral-700/50"
+        className="p-5 rounded-full text-neutral-400 hover:border border-emerald-500 focus:outline-emerald-500 hover:text-emerald-500 focus:text-emerald-500 bg-neutral-800/50 hover:bg-neutral-700/50 focus:bg-neutral-700/50"
         onClick={() => setOpen(true)}
       >
         <IoMdAdd size={24} />
