@@ -3,11 +3,12 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import rootReducer from '../reducer/rootReducer';
 // services
 import { usersApi } from '../services/users';
+import { driversApi } from '../services/drivers';
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(usersApi.middleware),
+    getDefaultMiddleware().concat(usersApi.middleware, driversApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
