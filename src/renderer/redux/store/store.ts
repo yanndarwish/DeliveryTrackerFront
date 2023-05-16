@@ -5,6 +5,7 @@ import rootReducer from '../reducer/rootReducer';
 import { usersApi } from '../services/users';
 import { driversApi } from '../services/drivers';
 import { clientsApi } from '../services/clients';
+import { vehiclesApi } from '../services/vehicles';
 
 export const store = configureStore({
   reducer: rootReducer,
@@ -12,7 +13,8 @@ export const store = configureStore({
     getDefaultMiddleware().concat(
       usersApi.middleware,
       driversApi.middleware,
-      clientsApi.middleware
+      clientsApi.middleware,
+      vehiclesApi.middleware
     ),
 });
 
