@@ -1,14 +1,28 @@
 export interface PostUser {
-  name: String;
+  name: string;
 }
 
 export interface User extends PostUser {
-  _id: String;
-  __v: Number;
+  _id: string;
+  __v: number;
 }
 
+export interface PostDriver {
+  firstName: string;
+  lastName: string;
+  phone: string;
+}
+
+export interface Driver extends PostDriver {
+  _id: string;
+  __v: number;
+  active: boolean;
+  createdBy: string
+  createdAt: string;
+  updatedAt: string;
+}
 export interface Link {
-  title: String;
-  url: String;
+  title: string;
+  url: string;
   icon: any;
 }
