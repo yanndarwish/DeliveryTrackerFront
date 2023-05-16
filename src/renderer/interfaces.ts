@@ -3,12 +3,17 @@ interface IDData {
   __v: number;
 }
 
-interface InfoData extends IDData {
-  active?: boolean;
+interface CreatedBy {
   createdBy: string;
 }
 
-interface MetaData extends InfoData {
+interface Active {
+  active?: boolean;
+}
+
+interface PostBase extends CreatedBy, Active {}
+
+interface MetaData extends IDData {
   createdAt: string;
   updatedAt: string;
 }
@@ -19,7 +24,7 @@ export interface PostUser {
 
 export type User = PostUser & IDData;
 
-export interface PostDriver {
+export interface PostDriver extends PostBase {
   firstName: string;
   lastName: string;
   email?: string;
@@ -28,7 +33,7 @@ export interface PostDriver {
 
 export type Driver = PostDriver & MetaData;
 
-export interface PostClient {
+export interface PostClient extends PostBase {
   name: string;
   streetNumber: number;
   streetName: string;
@@ -39,7 +44,7 @@ export interface PostClient {
 
 export type Client = PostClient & MetaData;
 
-export interface PostVehicle {
+export interface PostVehicle extends PostBase {
   brand: string;
   model: string;
   immatriculation: string;
@@ -47,7 +52,7 @@ export interface PostVehicle {
 
 export type Vehicle = PostVehicle & MetaData;
 
-export interface PostProvider {
+export interface PostProvider extends PostBase {
   name: string;
   wharehouse?: string;
   headquarter?: string;
@@ -57,6 +62,33 @@ export interface PostProvider {
 }
 
 export type Provider = PostProvider & MetaData;
+
+interface Event {
+  client: string;
+  date: string;
+}
+
+export interface PostDelivery extends CreatedBy {
+  provider: string;
+  driver: string;
+  vehicle: string;
+  pickups: Event[];
+  dropoffs: Event[];
+  hotel?: number;
+}
+
+export type Delivery = PostDelivery & MetaData;
+
+export interface DeliveryParams {
+  driver?: string;
+  provider?: string;
+  client?: string;
+  vehicle?: string;
+  hotel?: boolean;
+  year?: number;
+  month?: number;
+  sort?: any;
+}
 
 export interface Link {
   title: string;

@@ -9,6 +9,8 @@ import vehicleReducer from '../features/vehicleSlice';
 import { vehiclesApi } from '../services/vehicles';
 import providerReducer from '../features/providerSlice';
 import { providersApi } from '../services/providers';
+import deliveryReducer from '../features/deliverySlice';
+import { deliveriesApi } from '../services/deliveries';
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -16,11 +18,13 @@ const rootReducer = combineReducers({
   client: clientReducer,
   vehicle: vehicleReducer,
   provider: providerReducer,
+  delivery: deliveryReducer,
   [usersApi.reducerPath]: usersApi.reducer,
   [driversApi.reducerPath]: driversApi.reducer,
   [clientsApi.reducerPath]: clientsApi.reducer,
   [vehiclesApi.reducerPath]: vehiclesApi.reducer,
   [providersApi.reducerPath]: providersApi.reducer,
+  [deliveriesApi.reducerPath]: deliveriesApi.reducer,
 });
 
 export default rootReducer;
