@@ -18,17 +18,15 @@ const Root = () => {
 
   return (
     user && (
-      <div className="h-screen bg-neutral-900 [&>*]:leading-[1.6]">
+      <div className="h-screen flex flex-col bg-neutral-900 [&>*]:leading-[1.6]">
         {/* Navbar */}
-        <header>
+        <header className='h-fit'>
           <Navbar />
           <Sidebar user={user} />
         </header>
         {/* Content */}
-        <main id="content">
-          <div className="container">
+        <main id="content" className='h-full'>
             <Outlet />
-          </div>
         </main>
       </div>
     )

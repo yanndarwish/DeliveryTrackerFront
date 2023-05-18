@@ -4,11 +4,11 @@ const Navbar = () => {
   return (
     <nav
       id="main-navbar"
-      className="flex w-full flex-nowrap items-center justify-between py-4 text-white  bg-transparent lg:flex-wrap lg:justify-start xl:pl-60"
+      className="flex w-fit flex-nowrap items-center justify-between py-4 text-white  bg-transparent lg:flex-wrap lg:justify-start xl:pl-60"
       data-te-navbar-ref
     >
       {/* <!-- Container wrapper --> */}
-      <div className="flex w-full flex-wrap items-center justify-between px-4">
+      <div className="flex flex-wrap items-center justify-between px-4">
         {/* <!-- Toggler --> */}
         <button
           data-te-sidenav-toggle-ref
@@ -18,15 +18,6 @@ const Navbar = () => {
           aria-haspopup="true"
         >
           <IoMdMenu size={24} />
-        </button>
-        <div className="invisible"></div>
-        <button
-          className="p-1 rounded-full focus:outline-emerald-500 text-emerald-500 bg-neutral-800 hover:bg-neutral-700 focus:bg-neutral-700"
-          aria-controls="#create-delivery-panel"
-          data-target="#create-delivery-panel"
-          aria-haspopup="true"
-        >
-          <IoMdAdd size={24} />
         </button>
       </div>
       {/* <!-- Container wrapper --> */}
