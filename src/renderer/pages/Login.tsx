@@ -3,7 +3,8 @@ import { useAppDispatch } from 'renderer/redux/hooks';
 import { User } from 'renderer/interfaces';
 import { IoMdAdd } from 'react-icons/io';
 import { setUser } from 'renderer/redux/features/userSlice';
-import { useGetUsersQuery } from 'renderer/redux/services/users';
+// import { useGetUsersQuery } from 'renderer/redux/services/users';
+import { users } from 'renderer/mock';
 import SidePanel from 'renderer/components/globals/SidePanel';
 import CreateUser from 'renderer/components/CreateUserForm';
 import { useState } from 'react';
@@ -12,8 +13,7 @@ const Login = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
-  const { data, error, isLoading } = useGetUsersQuery(null);
+  // const { data, error, isLoading } = useGetUsersQuery(null);
 
   const handleClick = (user: User) => {
     dispatch(setUser({ user: user }));
@@ -26,7 +26,7 @@ const Login = () => {
         Choisissez un utilisateur
       </h1>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
-        {data?.users?.map((user, i) => (
+        {users?.map((user, i) => (
           <button
             key={i}
             className="cursor-pointer flex items-center justify-center rounded-xl p-6 bg-neutral-800 text-neutral-300 hover:border border-emerald-500 hover:bg-neutral-700/50 hover:text-emerald-500 focus:outline-emerald-500 focus:text-emerald-500 w-40 h-40"
