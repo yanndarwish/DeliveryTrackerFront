@@ -40,7 +40,11 @@ const Table = (props: ITableProps) => {
                       key={i}
                       className={`whitespace-nowrap px-4 py-4 font-medium ${
                         i === 0 ? 'uppercase' : 'capitalize'
-                      } ${row[item.field[0]] === true ? "text-emerald-500" : row[item.field[0]] === false && "text-red-500"}`}
+                      } ${
+                        row[item.field[0]] === true
+                          ? 'text-emerald-500'
+                          : row[item.field[0]] === false && 'text-red-500'
+                      }`}
                     >
                       {item.field.length > 1 && row[item.field[0]] !== null ? (
                         row[item.field[0]] + ' ' + row[item.field[1]]
