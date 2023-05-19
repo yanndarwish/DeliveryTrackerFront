@@ -6,6 +6,8 @@ import Home from 'renderer/pages/Home';
 import Deliveries from 'renderer/pages/Deliveries';
 import Clients from 'renderer/pages/Clients';
 import Provider from 'renderer/pages/Provider';
+import Vehicles from 'renderer/pages/Vehicles';
+import Drivers from 'renderer/pages/Drivers';
 
 const router = createHashRouter([
   {
@@ -29,6 +31,14 @@ const router = createHashRouter([
       {
         path: 'deliveries',
         element: <Deliveries />,
+      },
+      {
+        path: 'vehicles',
+        element: <Vehicles />,
+      },
+      {
+        path: 'drivers',
+        element: <Drivers />,
       },
     ],
   },

@@ -6,4 +6,6 @@ export const links: Link[] = [
   { title: 'Livraisons', url: '/deliveries', icon: <IoMdStats /> },
   { title: 'Clients', url: '/clients', icon: <IoMdStats /> },
   { title: 'Commissionnaires', url: '/providers', icon: <IoMdStats /> },
+  { title: 'Véhicules', url: '/vehicles', icon: <IoMdStats /> },
+  { title: 'Chauffeurs', url: '/drivers', icon: <IoMdStats /> },
 ];
