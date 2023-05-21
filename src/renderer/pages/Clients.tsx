@@ -5,7 +5,7 @@ import { useAppSelector } from 'renderer/redux/hooks';
 import SidePanel from 'renderer/components/globals/SidePanel';
 import { useState } from 'react';
 import CreateClientForm from 'renderer/components/CreateClientForm';
-import Table from 'renderer/components/globals/Table';
+import Table from 'renderer/components/globals/Table/Table';
 
 export interface IClientsProps {}
 
@@ -15,21 +15,27 @@ const Clients = (props: IClientsProps) => {
   // console.log(data);
   const user = useAppSelector((state) => state.user.user);
 
-  const formatedData = {
-    header: [
-      { title: 'Nom', field: ['name'] },
-      { title: 'Adresse', field: ['streetNumber', 'streetName'] },
-      { title: 'Ville', field: ['city'] },
-      { title: 'Code Postal', field: ['postalCode'] },
-      { title: 'Pays', field: ['country'] },
-      { title: 'Actif', field: ['active'] },
-    ],
-    data: clients,
-  };
+  const columns = [
+    { label: 'Nom', accessor: 'name', sortable: true },
+    {
+      label: 'Numéro',
+      accessor: 'streetNumber',
+      sortable: false,
+    },
+    {
+      label: 'Rue',
+      accessor: 'streetName',
+      sortable: true,
+    },
+    { label: 'Ville', accessor: 'city', sortable: true },
+    { label: 'Code Postal', accessor: 'postalCode', sortable: true },
+    { label: 'Pays', accessor: 'country', sortable: true },
+    { label: 'Actif', accessor: 'active', sortable: true },
+  ];
 
   console.log(clients);
   return (
-    <div className="relative h-full px-6 text-white">
+    <div className="relative h-full flex flex-col gap-y-8 px-6 text-white">
       {/* page header */}
       <div className="flex justify-between items-center pr-2">
         <h1 className="text-4xl font-medium">Clients</h1>
@@ -49,7 +55,10 @@ const Clients = (props: IClientsProps) => {
 
       {/* table */}
       {clients.filter((client) => client.createdBy === user._id).length ? (
-        <Table header={formatedData.header} data={formatedData.data} />
+        <Table
+          columns={columns}
+          data={clients.filter((client) => client.createdBy === user._id)}
+        />
       ) : (
         <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center flex-col gap-8">
           <p className="text-center text-xl">
