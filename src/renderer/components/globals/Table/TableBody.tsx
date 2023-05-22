@@ -22,12 +22,11 @@ const closeMark = () => {
 };
 
 const TableBody = (props: ITableBodyProps) => {
-  console.log(props.tableData);
   return (
     <tbody>
       {props.tableData?.map((data, i) => (
         <tr
-          key={data.id}
+          key={data._id}
           className={`border-b border-neutral-700 text-neutral-100 ${
             i % 2 === 0 ? '' : 'bg-neutral-800/40'
           }`}

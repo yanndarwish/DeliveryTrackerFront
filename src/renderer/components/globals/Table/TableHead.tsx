@@ -1,20 +1,21 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 export interface ITableHeadProps {
   columns: any[];
   handleSorting: any;
+  sortField: string;
+  setSortField: Dispatch<SetStateAction<string>>;
+  order: string;
+  setOrder: Dispatch<SetStateAction<string>>;
 }
 
 const TableHead = (props: ITableHeadProps) => {
-  const [sortField, setSortField] = useState('');
-  const [order, setOrder] = useState('asc');
 
   const handleSortingChange = (accessor: string) => {
     const sortOrder =
-      accessor === sortField && order === 'asc' ? 'desc' : 'asc';
-    setSortField(accessor);
-    setOrder(sortOrder);
-    props.handleSorting(accessor, sortOrder);
+      accessor === props.sortField && props.order === 'asc' ? 'desc' : 'asc';
+    props.setSortField(accessor);
+    props.setOrder(sortOrder);
   };
 
   return (
@@ -22,9 +23,9 @@ const TableHead = (props: ITableHeadProps) => {
       <tr>
         {props.columns.map(({ label, accessor, sortable }, i) => {
           const cl = sortable
-            ? sortField === accessor && order === 'asc'
+            ? props.sortField === accessor && props.order === 'asc'
               ? 'up'
-              : sortField === accessor && order === 'desc'
+              : props.sortField === accessor && props.order === 'desc'
               ? 'down'
               : 'default'
             : '';
@@ -34,7 +35,7 @@ const TableHead = (props: ITableHeadProps) => {
               onClick={
                 sortable ? () => handleSortingChange(accessor) : undefined
               }
-              className={`px-4 py-3 ${cl} ${sortable ? 'cursor-pointer' : ''}`}
+              className={`px-4 py-4 ${cl} ${sortable ? 'cursor-pointer' : ''}`}
             >
               {label}
             </th>

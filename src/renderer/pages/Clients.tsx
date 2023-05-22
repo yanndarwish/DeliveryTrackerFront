@@ -11,8 +11,6 @@ export interface IClientsProps {}
 
 const Clients = (props: IClientsProps) => {
   const [open, setOpen] = useState<Boolean>(false);
-  // const { data } = useGetClientsQuery(null);
-  // console.log(data);
   const user = useAppSelector((state) => state.user.user);
 
   const columns = [
