@@ -54,6 +54,7 @@ const Clients = (props: IClientsProps) => {
       {/* table */}
       {clients.filter((client) => client.createdBy === user._id).length ? (
         <Table
+          name="clients"
           columns={columns}
           data={clients.filter((client) => client.createdBy === user._id)}
         />
