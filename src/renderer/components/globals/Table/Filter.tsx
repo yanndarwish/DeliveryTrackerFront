@@ -1,11 +1,12 @@
 import ClientsFilter from './filters/ClientsFilter';
+import { TableNames } from 'renderer/interfaces';
 
 export interface IFilterProps {
   searchRef: React.RefObject<HTMLInputElement>;
   handleSearch: (searchString: string) => void;
-  name: string;
-  filterList: object;
-  setFilterList: React.Dispatch<React.SetStateAction<object>>;
+  name: TableNames;
+  filterObject: object;
+  setfilterObject: React.Dispatch<React.SetStateAction<object>>;
 }
 
 const Filter = (props: IFilterProps) => {
@@ -43,8 +44,8 @@ const Filter = (props: IFilterProps) => {
         </div>
         {props.name === 'clients' && (
           <ClientsFilter
-            filterList={props.filterList}
-            setFilterList={props.setFilterList}
+            filterObject={props.filterObject}
+            setfilterObject={props.setfilterObject}
           />
         )}
       </form>

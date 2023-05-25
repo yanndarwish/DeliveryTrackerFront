@@ -1,3 +1,7 @@
+export type ActiveStatus = 'all' | 'true' | 'false';
+export type Countries = 'all' | 'france' | 'other';
+export type TableNames = "clients" | "vehicles" | "providers" | "drivers" | "deliveries" | "groups"
+
 export interface keyable {
   [key: string]: any;
 }

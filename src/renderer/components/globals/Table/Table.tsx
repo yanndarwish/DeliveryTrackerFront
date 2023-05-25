@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import TableHead from './TableHead';
 import TableBody from './TableBody';
+import { TableNames } from 'renderer/interfaces';
 import {
   handleSorting,
   handleSearching,
@@ -12,13 +13,13 @@ import XLSX from 'xlsx';
 export interface ITableProps {
   data: any[];
   columns: any[];
-  name: string;
+  name: TableNames;
 }
 
 const Table = (props: ITableProps) => {
   const searchRef = useRef<HTMLInputElement>(null);
   const [sortField, setSortField] = useState<string>('');
-  const [filterList, setFilterList] = useState<object>({});
+  const [filterObject, setfilterObject] = useState<object>({});
   const [order, setOrder] = useState('asc');
   const [filteredData, setFilteredData] = useState<any[]>(props.data);
 
@@ -33,15 +34,13 @@ const Table = (props: ITableProps) => {
 
   const handleSearch = (searchString: string) => {
     setFilteredData(
-      handleSearching(handleFiltering(props.data, filterList), searchString)
+      handleSearching(handleFiltering(props.data, filterObject), searchString)
     );
   };
 
   const handleFilter = () => {
-    setFilteredData(handleFiltering(props.data, filterList));
+    setFilteredData(handleFiltering(props.data, filterObject));
   };
-
-  console.log(filterList);
 
   useEffect(() => {
     handleSort();
@@ -49,7 +48,7 @@ const Table = (props: ITableProps) => {
 
   useEffect(() => {
     handleFilter();
-  }, [filterList]);
+  }, [filterObject]);
 
   return (
     <div className="flex flex-col gap-8">
@@ -57,10 +56,13 @@ const Table = (props: ITableProps) => {
         name={props.name}
         searchRef={searchRef}
         handleSearch={handleSearch}
-        filterList={filterList}
-        setFilterList={setFilterList}
+        filterObject={filterObject}
+        setfilterObject={setfilterObject}
       />
-      <button onClick={() => exportToExcel()} className="btn btn-secondary fixed bottom-8 right-9">
+      <button
+        onClick={() => exportToExcel()}
+        className="btn btn-secondary fixed bottom-8 right-9"
+      >
         Export
       </button>
       <div className="relative flex flex-col gap-6 overflow-x-auto shadow-md sm:rounded-lg">

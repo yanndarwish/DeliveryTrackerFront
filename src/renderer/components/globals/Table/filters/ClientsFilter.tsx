@@ -1,24 +1,25 @@
 import { useEffect, useState } from 'react';
-import { keyable } from 'renderer/interfaces';
 import { groups } from 'renderer/mock';
+import { ActiveStatus, Countries, keyable } from 'renderer/interfaces';
+
 export interface IClientsFilterProps {
-  filterList: keyable;
-  setFilterList: React.Dispatch<React.SetStateAction<object>>;
+  filterObject: keyable;
+  setfilterObject: React.Dispatch<React.SetStateAction<object>>;
 }
 
 const ClientsFilter = (props: IClientsFilterProps) => {
-  const [active, setActive] = useState<string>('all');
-  const [country, setCountry] = useState<string>('all');
+  const [active, setActive] = useState<ActiveStatus>('all');
+  const [country, setCountry] = useState<Countries>('all');
   const [group, setGroup] = useState<string>('all');
 
   const updateFilters = () => {
-    let filters = Object.assign({}, props.filterList);
+    let filters = Object.assign({}, props.filterObject);
 
     filters.active = active;
     filters.country = country;
     filters.group = group;
 
-    props.setFilterList(filters);
+    props.setfilterObject(filters);
   };
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const ClientsFilter = (props: IClientsFilterProps) => {
         <label className="label label-text">Statut</label>
         <select
           className="select select-bordered select-sm w-full max-w-xs"
-          onChange={(e) => setActive(e.target.value)}
+          onChange={(e) => setActive(e.target.value as ActiveStatus)}
         >
           <option value="all">Tous</option>
           <option value="true">Actif</option>
@@ -57,7 +58,7 @@ const ClientsFilter = (props: IClientsFilterProps) => {
         <label className="label label-text">Pays</label>
         <select
           className="select select-bordered select-sm w-full max-w-xs"
-          onChange={(e) => setCountry(e.target.value)}
+          onChange={(e) => setCountry(e.target.value as Countries)}
         >
           <option value="all">Tous</option>
           <option value="france">France</option>
