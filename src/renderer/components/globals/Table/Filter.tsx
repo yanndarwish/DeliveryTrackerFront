@@ -1,13 +1,17 @@
+import ClientsFilter from './filters/ClientsFilter';
+
 export interface IFilterProps {
   searchRef: React.RefObject<HTMLInputElement>;
   handleSearch: (searchString: string) => void;
+  name: string;
+  filterList: object;
+  setFilterList: React.Dispatch<React.SetStateAction<object>>;
 }
 
 const Filter = (props: IFilterProps) => {
-
   return (
     <div className="flex flex-col gap-4">
-      <form autoComplete="false">
+      <form autoComplete="false" className="flex flex-col gap-4">
         <label
           htmlFor="search"
           className="mb-2 text-sm font-medium sr-only text-white"
@@ -41,6 +45,12 @@ const Filter = (props: IFilterProps) => {
             required
           />
         </div>
+        {props.name === 'clients' && (
+          <ClientsFilter
+            filterList={props.filterList}
+            setFilterList={props.setFilterList}
+          />
+        )}
       </form>
     </div>
   );

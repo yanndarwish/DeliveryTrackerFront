@@ -15,7 +15,7 @@ const checkMark = () => {
 
 const closeMark = () => {
   return (
-    <div className="flex justify-center items-center rounded-full aspect-square h-8 border border-red-500 bg-red-100 text-red-500">
+    <div className="flex justify-center items-center rounded-full aspect-square h-8 border border-red-500 text-red-500">
       <MdClose size={24} />
     </div>
   );
@@ -32,11 +32,11 @@ const TableBody = (props: ITableBodyProps) => {
           }`}
         >
           {props.columns.map(({ accessor }, i) => {
-            let tData = data[accessor] ? data[accessor] : '——';
+            let tData = data[accessor] !== null ? data[accessor] : '——';
             tData =
               tData === true
                 ? checkMark()
-                : tData === true
+                : tData === false
                 ? closeMark()
                 : tData;
             return (

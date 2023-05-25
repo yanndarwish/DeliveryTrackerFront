@@ -1,3 +1,7 @@
+export interface keyable {
+  [key: string]: any;
+}
+
 interface IDData {
   _id: string;
   __v: number;
