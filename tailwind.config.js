@@ -1,13 +1,12 @@
-const twElements = require('tw-elements/dist/plugin.cjs');
+const daisyUi = require('daisyui')
 
 module.exports = {
-  content: [
-    './src/renderer/**/*.{js,jsx,ts,tsx,ejs}',
-    './node_modules/tw-elements/dist/js/**/*.js',
-  ],
-  darkMode: 'class', // or 'media' or 'class'
+  content: ['./src/renderer/**/*.{js,jsx,ts,tsx,ejs}'],
+  daisyui: {
+    themes: ['winter'],
+  },
   variants: {
     extend: {},
   },
-  plugins: [twElements],
+  plugins: [daisyUi],
 };

@@ -19,7 +19,7 @@ const TableHead = (props: ITableHeadProps) => {
   };
 
   return (
-    <thead className="text-xs uppercase bg-neutral-800 text-neutral-200">
+    <thead>
       <tr>
         {props.columns.map(({ label, accessor, sortable }, i) => {
           const cl = sortable

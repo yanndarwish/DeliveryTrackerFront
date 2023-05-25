@@ -10,3 +10,13 @@
 button:focus, input:focus, a:focus {
     outline: transparent;
 }
+
+@layer base {
+    .h1 {
+        @apply text-5xl font-medium
+    }
+
+    .h2 {
+        @apply text-4xl font-medium
+    }
+}

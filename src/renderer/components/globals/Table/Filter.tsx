@@ -12,10 +12,7 @@ const Filter = (props: IFilterProps) => {
   return (
     <div className="flex flex-col gap-4">
       <form autoComplete="false" className="flex flex-col gap-4">
-        <label
-          htmlFor="search"
-          className="mb-2 text-sm font-medium sr-only text-white"
-        >
+        <label htmlFor="search" className="mb-2 text-sm font-medium sr-only">
           Rechercher
         </label>
         <div className="relative">
@@ -38,8 +35,7 @@ const Filter = (props: IFilterProps) => {
           </div>
           <input
             ref={props.searchRef}
-            // type="search"
-            className="block w-full p-4 pl-10 text-sm border rounded-lg bg-neutral-700 border-neutral-600 placeholder-neutral-400 text-white focus:ring-0 focus:border-emerald-500 focus-visible:outline-emerald-500 active:border-emerald-500 sm:w-64"
+            className="input input-bordered pl-10 w-full sm:w-auto"
             placeholder="Rechercher"
             onChange={(e) => props.handleSearch(e.target.value)}
             required

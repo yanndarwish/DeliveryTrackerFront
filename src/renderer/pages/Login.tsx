@@ -21,15 +21,15 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen w-screen flex items-center justify-center flex-col gap-16 bg-neutral-900">
-      <h1 className="text-5xl font-medium text-white text-center">
+    <div className="h-screen w-screen flex items-center justify-center flex-col gap-16 bg-base-100">
+      <h1 className="h1 text-center">
         Choisissez un utilisateur
       </h1>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
         {users?.map((user, i) => (
           <button
             key={i}
-            className="cursor-pointer flex items-center justify-center rounded-xl p-6 bg-neutral-800 text-neutral-300 hover:border border-emerald-500 hover:bg-neutral-700/50 hover:text-emerald-500 focus:outline-emerald-500 focus:text-emerald-500 w-40 h-40"
+            className="btn btn-wide btn-lg"
             onClick={() => handleClick(user)}
           >
             <h5 className="text-xl font-semibold leading-6 uppercase text-center">
@@ -39,7 +39,7 @@ const Login = () => {
         ))}
       </div>
       <button
-        className="p-5 rounded-full text-neutral-400 hover:border border-emerald-500 focus:outline-emerald-500 hover:text-emerald-500 focus:text-emerald-500 bg-neutral-800/50 hover:bg-neutral-700/50 focus:bg-neutral-700/50"
+        className="btn btn-circle"
         onClick={() => setOpen(true)}
       >
         <IoMdAdd size={24} />

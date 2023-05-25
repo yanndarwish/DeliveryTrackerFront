@@ -60,17 +60,11 @@ const Table = (props: ITableProps) => {
         filterList={filterList}
         setFilterList={setFilterList}
       />
-      <button
-        onClick={() => exportToExcel()}
-        className="text-emerald-600 border-emerald-600 border-2 hover:text-emerald-500 hover:border-emerald-500 focus:text-emerald-500 focus:outline-emerald-500 uppercase font-medium py-2 px-4 rounded-md"
-      >
+      <button onClick={() => exportToExcel()} className="btn btn-secondary fixed bottom-8 right-9">
         Export
       </button>
       <div className="relative flex flex-col gap-6 overflow-x-auto shadow-md sm:rounded-lg">
-        <table
-          id="table"
-          className="w-full text-sm text-left text-gray-500 dark:text-gray-400"
-        >
+        <table id="table" className="table table-zebra w-full">
           <TableHead
             columns={props.columns}
             handleSorting={handleSorting}

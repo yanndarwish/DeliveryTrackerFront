@@ -56,21 +56,21 @@ const SidePanel = (props: ISidePanelProps) => {
     // overlay
     <div
       ref={overlayRef}
-      className="fixed top-0 left-0 right-0 bottom-0 bg-black/60"
+      className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-black/60"
       onClick={(e) => handleOverlayClick(e)}
       onKeyDown={(e) => handleKeyDown(e)}
     >
       {/* side panel */}
       <div
         id="side-panel"
-        className="absolute top-0 right-0 w-full h-full bg-neutral-800 sm:w-[520px] flex flex-col gap-8 p-8"
+        className="absolute top-0 right-0 w-full h-full bg-base-100 sm:w-[520px] flex flex-col gap-8 p-8"
       >
         {/* panel header */}
         <div>
           <div className="flex justify-between items-center">
-            <h2 className="text-3xl text-white font-medium">{props.title}</h2>
+            <h2 className="text-3xl font-medium">{props.title}</h2>
             <button
-              className="p-1 rounded-full text-neutral-500 focus:outline-emerald-500 hover:text-emerald-500 focus:text-emerald-500  hover:bg-neutral-700 focus:bg-neutral-700"
+              className="btn btn-circle btn-ghost"
               onClick={() => props.setOpen(false)}
               autoFocus
             >

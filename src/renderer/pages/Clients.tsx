@@ -33,13 +33,13 @@ const Clients = (props: IClientsProps) => {
 
   console.log(clients);
   return (
-    <div className="relative h-full flex flex-col gap-y-8 px-6 text-white">
+    <div className="h-full flex flex-col pt-8 lg:pt-0 gap-y-8">
       {/* page header */}
-      <div className="flex justify-between items-center pr-2">
-        <h1 className="text-4xl font-medium">Clients</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="h2">Clients</h1>
         {clients.filter((client) => client.createdBy === user._id).length ? (
           <button
-            className="p-1 rounded-full text-emerald-500 border border-emerald-500 focus:outline-emerald-500 hover:text-emerald-500 focus:text-emerald-500  hover:bg-neutral-700 focus:bg-neutral-700"
+            className="btn btn-circle"
             onClick={() => setOpen(true)}
             autoFocus
           >
@@ -64,7 +64,7 @@ const Clients = (props: IClientsProps) => {
             Vous n'avez aucun client pour le moment, ajoutez-en un nouveau !
           </p>
           <button
-            className="p-5 rounded-full text-emerald-500 border border-emerald-500 focus:outline-emerald-500 hover:text-emerald-500 focus:text-emerald-500 bg-neutral-800/50 hover:bg-neutral-700/50 focus:bg-neutral-700/50"
+            className="p-5 rounded-full text-primary border border-primary focus:outline-primary hover:text-primary focus:text-primary bg-neutral-800/50 hover:bg-neutral-700/50 focus:bg-neutral-700/50"
             onClick={() => setOpen(true)}
           >
             <IoMdAdd size={24} />
