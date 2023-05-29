@@ -1,6 +1,22 @@
 export type ActiveStatus = 'all' | 'true' | 'false';
 export type Countries = 'all' | 'france' | 'other';
-export type TableNames = "clients" | "vehicles" | "providers" | "drivers" | "deliveries" | "groups"
+export type TableNames =
+  | 'clients'
+  | 'vehicles'
+  | 'providers'
+  | 'drivers'
+  | 'deliveries'
+  | 'groups';
+
+export interface ColumnBase {
+  label: string;
+  accessor: string;
+  sortable: boolean;
+}
+
+export interface DeliveryColumn extends ColumnBase {
+  type?: string;
+}
 
 export interface keyable {
   [key: string]: any;

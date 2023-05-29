@@ -1,8 +1,9 @@
 import { MdCheck, MdClose } from 'react-icons/md';
+import { ColumnBase, DeliveryColumn } from 'renderer/interfaces';
 
 export interface ITableBodyProps {
   tableData: any[];
-  columns: any[];
+  columns: ColumnBase[] | DeliveryColumn[];
 }
 
 const checkMark = () => {
@@ -25,9 +26,7 @@ const TableBody = (props: ITableBodyProps) => {
   return (
     <tbody>
       {props.tableData?.map((data, i) => (
-        <tr
-          key={data._id}
-        >
+        <tr key={data._id}>
           {props.columns.map(({ accessor }, i) => {
             let tData = data[accessor] !== null ? data[accessor] : '——';
             tData =
@@ -36,6 +35,7 @@ const TableBody = (props: ITableBodyProps) => {
                 : tData === false
                 ? closeMark()
                 : tData;
+
             return (
               <td
                 key={accessor}
