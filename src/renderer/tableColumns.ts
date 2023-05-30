@@ -1,4 +1,4 @@
-import { ColumnBase, DeliveryColumn } from "./interfaces";
+import { ColumnBase, DeliveryColumn } from './interfaces';
 
 export const deliveryColumns: DeliveryColumn[] = [
   {
@@ -89,8 +89,8 @@ export const vehicleColumns: ColumnBase[] = [
     label: 'Modèle',
     accessor: 'model',
     sortable: true,
-},
-{ label: 'Actif', accessor: 'active', sortable: true },
+  },
+  { label: 'Actif', accessor: 'active', sortable: true },
 ];
 
 export const clientColumns: ColumnBase[] = [
@@ -108,5 +108,15 @@ export const clientColumns: ColumnBase[] = [
   { label: 'Ville', accessor: 'city', sortable: true },
   { label: 'Code Postal', accessor: 'postalCode', sortable: true },
   { label: 'Pays', accessor: 'country', sortable: true },
+  { label: 'Actif', accessor: 'active', sortable: true },
+];
+
+export const groupColumns: ColumnBase[] = [
+  { label: 'Nom', accessor: 'name', sortable: true },
+  {
+    label: 'Clients',
+    accessor: 'clients',
+    sortable: true,
+  },
   { label: 'Actif', accessor: 'active', sortable: true },
 ];

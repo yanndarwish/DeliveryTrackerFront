@@ -8,6 +8,7 @@ import Clients from 'renderer/pages/Clients';
 import Provider from 'renderer/pages/Provider';
 import Vehicles from 'renderer/pages/Vehicles';
 import Drivers from 'renderer/pages/Drivers';
+import Groups from 'renderer/pages/Groups';
 
 const router = createHashRouter([
   {
@@ -39,6 +40,10 @@ const router = createHashRouter([
       {
         path: 'drivers',
         element: <Drivers />,
+      },
+      {
+        path: 'groups',
+        element: <Groups />,
       },
     ],
   },

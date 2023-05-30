@@ -8,4 +8,5 @@ export const links: Link[] = [
   { title: 'Commissionnaires', url: '/providers', icon: <IoMdStats /> },
   { title: 'Véhicules', url: '/vehicles', icon: <IoMdStats /> },
   { title: 'Chauffeurs', url: '/drivers', icon: <IoMdStats /> },
+  { title: 'Groupes', url: '/groups', icon: <IoMdStats /> },
 ];
