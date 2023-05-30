@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import { useAppSelector } from 'renderer/redux/hooks';
+// utils
+import { groups } from 'renderer/mock';
+import { groupColumns } from 'renderer/tableColumns';
+// components
 import EmptyMessage from 'renderer/components/globals/EmptyMessage';
 import PageContainer from 'renderer/components/globals/PageContainer';
 import PageHeader from 'renderer/components/globals/PageHeader';
 import SidePanel from 'renderer/components/globals/SidePanel';
 import Table from 'renderer/components/globals/Table/Table';
-import { groups } from 'renderer/mock';
-import { groupColumns } from 'renderer/tableColumns';
-import { useAppSelector } from 'renderer/redux/hooks';
 import CreateGroupForm from 'renderer/components/CreateGroupForm';
 
 const Groups = () => {
