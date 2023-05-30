@@ -29,7 +29,6 @@ export const deliveryColumns: DeliveryColumn[] = [
     accessor: 'hotel',
     sortable: true,
   },
-  { label: 'Actif', accessor: 'active', sortable: true },
 ];
 
 export const driverColumns: ColumnBase[] = [

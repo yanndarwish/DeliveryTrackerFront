@@ -1,5 +1,6 @@
 import ClientsFilter from './filters/ClientsFilter';
 import { TableNames } from 'renderer/interfaces';
+import StatusFilter from './filters/StatusFilter';
 
 export interface IFilterProps {
   searchRef: React.RefObject<HTMLInputElement>;
@@ -42,12 +43,20 @@ const Filter = (props: IFilterProps) => {
             required
           />
         </div>
-        {props.name === 'clients' && (
-          <ClientsFilter
-            filterObject={props.filterObject}
-            setfilterObject={props.setfilterObject}
-          />
-        )}
+        <div className="flex gap-4">
+          {props.name !== 'deliveries' && (
+            <StatusFilter
+              filterObject={props.filterObject}
+              setfilterObject={props.setfilterObject}
+            />
+          )}
+          {props.name === 'clients' && (
+            <ClientsFilter
+              filterObject={props.filterObject}
+              setfilterObject={props.setfilterObject}
+            />
+          )}
+        </div>
       </form>
     </div>
   );
