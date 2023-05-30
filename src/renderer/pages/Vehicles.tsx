@@ -15,6 +15,15 @@ const Vehicles = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const user = useAppSelector((state) => state.user.user);
 
+  const handleClick = (id: string) => {
+    getSingleVehicle(id);
+  };
+
+  const getSingleVehicle = (id: string) => {
+    let vehicle = vehicles.filter((vehicle) => vehicle._id === id)[0];
+    console.log(vehicle);
+  };
+
   console.log(vehicles);
 
   return (
@@ -32,6 +41,7 @@ const Vehicles = () => {
           name="vehicles"
           columns={vehicleColumns}
           data={vehicles.filter((vehicle) => vehicle.createdBy === user._id)}
+          onClick={handleClick}
         />
       ) : (
         <EmptyMessage

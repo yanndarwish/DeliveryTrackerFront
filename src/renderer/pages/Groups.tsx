@@ -15,6 +15,15 @@ const Groups = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const user = useAppSelector((state) => state.user.user);
 
+  const handleClick = (id: string) => {
+    getSingleGroup(id)
+  };
+
+  const getSingleGroup = (id:string) => {
+    let group = groups.filter(group => group._id === id)[0]
+    console.log(group)
+  }
+
   console.log(groups);
 
   return (
@@ -32,6 +41,7 @@ const Groups = () => {
           name="groups"
           columns={groupColumns}
           data={groups.filter((group) => group.createdBy === user._id)}
+          onClick={handleClick}
         />
       ) : (
         <EmptyMessage

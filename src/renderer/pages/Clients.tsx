@@ -16,6 +16,15 @@ const Clients = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const user = useAppSelector((state) => state.user.user);
 
+  const handleClick = (id: string) => {
+    getSingleClient(id);
+  };
+
+  const getSingleClient = (id: string) => {
+    let client = clients.filter((client) => client._id === id)[0];
+    console.log(client);
+  };
+
   console.log(clients);
 
   return (
@@ -33,6 +42,7 @@ const Clients = () => {
           name="clients"
           columns={clientColumns}
           data={clients.filter((client) => client.createdBy === user._id)}
+          onClick={handleClick}
         />
       ) : (
         <EmptyMessage

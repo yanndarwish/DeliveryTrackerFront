@@ -11,11 +11,18 @@ import SidePanel from 'renderer/components/globals/SidePanel';
 import Table from 'renderer/components/globals/Table/Table';
 import CreateDeliveryForm from 'renderer/components/CreateDeliveryForm';
 
-
-
 const Deliveries = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const user = useAppSelector((state) => state.user.user);
+
+  const handleClick = (id: string) => {
+    getSingleDelivery(id);
+  };
+
+  const getSingleDelivery = (id: string) => {
+    let delivery = deliveries.filter((delivery) => delivery._id === id)[0];
+    console.log(delivery);
+  };
 
   console.log(deliveries);
 
@@ -38,6 +45,7 @@ const Deliveries = () => {
           data={deliveries.filter(
             (delivery) => delivery.createdBy === user._id
           )}
+          onClick={handleClick}
         />
       ) : (
         <EmptyMessage
@@ -46,11 +54,7 @@ const Deliveries = () => {
         />
       )}
       {open && (
-        <SidePanel
-          title="Nouvelle Livraison"
-          open={open}
-          setOpen={setOpen}
-        >
+        <SidePanel title="Nouvelle Livraison" open={open} setOpen={setOpen}>
           <CreateDeliveryForm setOpen={setOpen} />
         </SidePanel>
       )}

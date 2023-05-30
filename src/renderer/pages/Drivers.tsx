@@ -15,6 +15,15 @@ const Drivers = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const user = useAppSelector((state) => state.user.user);
 
+  const handleClick = (id: string) => {
+    getSingleDriver(id);
+  };
+
+  const getSingleDriver = (id: string) => {
+    let driver = drivers.filter((driver) => driver._id === id)[0];
+    console.log(driver);
+  };
+
   console.log(drivers);
 
   return (
@@ -32,6 +41,7 @@ const Drivers = () => {
           name="drivers"
           columns={driverColumns}
           data={drivers.filter((driver) => driver.createdBy === user._id)}
+          onClick={handleClick}
         />
       ) : (
         <EmptyMessage

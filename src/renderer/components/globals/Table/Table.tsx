@@ -14,6 +14,7 @@ export interface ITableProps {
   data: any[];
   columns: any[];
   name: TableNames;
+  onClick: (id:string) => void
 }
 
 const Table = (props: ITableProps) => {
@@ -75,7 +76,7 @@ const Table = (props: ITableProps) => {
             order={order}
             setOrder={setOrder}
           />
-          <TableBody columns={props.columns} tableData={filteredData} />
+          <TableBody columns={props.columns} tableData={filteredData} onClick={props.onClick}/>
         </table>
       </div>
     </div>

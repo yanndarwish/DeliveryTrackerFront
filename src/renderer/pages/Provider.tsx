@@ -15,6 +15,15 @@ const Providers = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const user = useAppSelector((state) => state.user.user);
 
+  const handleClick = (id: string) => {
+    getSingleProvider(id);
+  };
+
+  const getSingleProvider = (id: string) => {
+    let provider = providers.filter((provider) => provider._id === id)[0];
+    console.log(provider);
+  };
+
   console.log(providers);
 
   return (
@@ -33,6 +42,7 @@ const Providers = () => {
           name="providers"
           columns={providerColumns}
           data={providers.filter((provider) => provider.createdBy === user._id)}
+          onClick={handleClick}
         />
       ) : (
         <EmptyMessage
