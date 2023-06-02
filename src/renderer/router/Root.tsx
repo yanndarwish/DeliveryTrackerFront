@@ -34,7 +34,7 @@ const Root = () => {
               <Outlet />
             </main>
           </div>
-          <div className="drawer-side">
+          <div className="drawer-side z-[-1]">
             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
             <ul className="menu p-4 w-80 bg-base-100 lg:bg-base-200/20 text-base-content">
               {links.map((link, i) => (
