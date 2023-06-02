@@ -7,9 +7,9 @@ import { deliveryColumns } from 'renderer/tableColumns';
 import EmptyMessage from 'renderer/components/globals/EmptyMessage';
 import PageContainer from 'renderer/components/globals/PageContainer';
 import PageHeader from 'renderer/components/globals/PageHeader';
-import SidePanel from 'renderer/components/globals/SidePanel';
+import SidePanel from 'renderer/components/globals/SidePanel/SidePanel';
 import Table from 'renderer/components/globals/Table/Table';
-import CreateDeliveryForm from 'renderer/components/CreateDeliveryForm';
+import CreateDeliveryForm from 'renderer/components/globals/SidePanel/CreateDeliveryForm';
 
 const Deliveries = () => {
   const [open, setOpen] = useState<Boolean>(false);

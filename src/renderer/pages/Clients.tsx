@@ -5,24 +5,28 @@ import { useAppSelector } from 'renderer/redux/hooks';
 import { clients } from 'renderer/mock';
 import { clientColumns } from 'renderer/tableColumns';
 // components
-import SidePanel from 'renderer/components/globals/SidePanel';
+import SidePanel from 'renderer/components/globals/SidePanel/SidePanel';
 import PageContainer from 'renderer/components/globals/PageContainer';
-import CreateClientForm from 'renderer/components/CreateClientForm';
+import CreateClientForm from 'renderer/components/globals/SidePanel/CreateClientForm';
 import Table from 'renderer/components/globals/Table/Table';
 import PageHeader from 'renderer/components/globals/PageHeader';
 import EmptyMessage from 'renderer/components/globals/EmptyMessage';
+import Modal from 'renderer/components/globals/Modal/Modal';
 
 const Clients = () => {
   const [open, setOpen] = useState<Boolean>(false);
+  const [modalOpen, setModalOpen] = useState<Boolean>(false);
+  const [client, setClient] = useState({});
   const user = useAppSelector((state) => state.user.user);
 
   const handleClick = (id: string) => {
     getSingleClient(id);
+    setModalOpen(!modalOpen);
   };
 
   const getSingleClient = (id: string) => {
     let client = clients.filter((client) => client._id === id)[0];
-    console.log(client);
+    setClient(client);
   };
 
   console.log(clients);
@@ -54,6 +58,14 @@ const Clients = () => {
         <SidePanel title="Nouveau Client" open={open} setOpen={setOpen}>
           <CreateClientForm setOpen={setOpen} />
         </SidePanel>
+      )}
+      {modalOpen && (
+        <Modal
+          title="Client"
+          open={modalOpen}
+          setOpen={setModalOpen}
+          data={client}
+        />
       )}
     </PageContainer>
   );

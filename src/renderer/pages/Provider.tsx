@@ -7,9 +7,9 @@ import { providerColumns } from 'renderer/tableColumns';
 import EmptyMessage from 'renderer/components/globals/EmptyMessage';
 import PageContainer from 'renderer/components/globals/PageContainer';
 import PageHeader from 'renderer/components/globals/PageHeader';
-import SidePanel from 'renderer/components/globals/SidePanel';
+import SidePanel from 'renderer/components/globals/SidePanel/SidePanel';
 import Table from 'renderer/components/globals/Table/Table';
-import CreateProviderForm from 'renderer/components/CreateProviderForm';
+import CreateProviderForm from 'renderer/components/globals/SidePanel/CreateProviderForm';
 
 const Providers = () => {
   const [open, setOpen] = useState<Boolean>(false);

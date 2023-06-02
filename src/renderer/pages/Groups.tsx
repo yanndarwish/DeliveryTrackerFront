@@ -7,9 +7,9 @@ import { groupColumns } from 'renderer/tableColumns';
 import EmptyMessage from 'renderer/components/globals/EmptyMessage';
 import PageContainer from 'renderer/components/globals/PageContainer';
 import PageHeader from 'renderer/components/globals/PageHeader';
-import SidePanel from 'renderer/components/globals/SidePanel';
+import SidePanel from 'renderer/components/globals/SidePanel/SidePanel';
 import Table from 'renderer/components/globals/Table/Table';
-import CreateGroupForm from 'renderer/components/CreateGroupForm';
+import CreateGroupForm from 'renderer/components/globals/SidePanel/CreateGroupForm';
 
 const Groups = () => {
   const [open, setOpen] = useState<Boolean>(false);

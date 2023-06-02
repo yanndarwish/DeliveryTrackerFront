@@ -4,11 +4,11 @@ import { useAppSelector } from 'renderer/redux/hooks';
 import { drivers } from 'renderer/mock';
 import { driverColumns } from 'renderer/tableColumns';
 // components
-import CreateDriverForm from 'renderer/components/CreateDriverForm';
+import CreateDriverForm from 'renderer/components/globals/SidePanel/CreateDriverForm';
 import EmptyMessage from 'renderer/components/globals/EmptyMessage';
 import PageContainer from 'renderer/components/globals/PageContainer';
 import PageHeader from 'renderer/components/globals/PageHeader';
-import SidePanel from 'renderer/components/globals/SidePanel';
+import SidePanel from 'renderer/components/globals/SidePanel/SidePanel';
 import Table from 'renderer/components/globals/Table/Table';
 
 const Drivers = () => {
