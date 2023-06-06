@@ -4,6 +4,7 @@ import { useAppSelector } from 'renderer/redux/hooks';
 // utils
 import { clients } from 'renderer/mock';
 import { clientColumns } from 'renderer/tableColumns';
+import { Client } from 'renderer/interfaces';
 // components
 import SidePanel from 'renderer/components/globals/SidePanel/SidePanel';
 import PageContainer from 'renderer/components/globals/PageContainer';
@@ -12,11 +13,12 @@ import Table from 'renderer/components/globals/Table/Table';
 import PageHeader from 'renderer/components/globals/PageHeader';
 import EmptyMessage from 'renderer/components/globals/EmptyMessage';
 import Modal from 'renderer/components/globals/Modal/Modal';
+import ClientModalContent from 'renderer/components/globals/Modal/ClientModalContent';
 
 const Clients = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const [modalOpen, setModalOpen] = useState<Boolean>(false);
-  const [client, setClient] = useState({});
+  const [client, setClient] = useState<Client | null>(null);
   const user = useAppSelector((state) => state.user.user);
 
   const handleClick = (id: string) => {
@@ -26,7 +28,7 @@ const Clients = () => {
 
   const getSingleClient = (id: string) => {
     let client = clients.filter((client) => client._id === id)[0];
-    setClient(client);
+    setClient(client as Client);
   };
 
   console.log(clients);
@@ -59,13 +61,15 @@ const Clients = () => {
           <CreateClientForm setOpen={setOpen} />
         </SidePanel>
       )}
-      {modalOpen && (
+      {modalOpen &&  (
         <Modal
-          title="Client"
+          title={client?.name}
           open={modalOpen}
           setOpen={setModalOpen}
-          data={client}
-        />
+          type="client"
+        >
+          <ClientModalContent data={client} />
+        </Modal>
       )}
     </PageContainer>
   );

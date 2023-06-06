@@ -58,6 +58,7 @@ export interface PostDriver extends PostBase {
 export type Driver = PostDriver & MetaData;
 
 export interface PostClient extends PostBase {
+  group: string[]
   name: string;
   streetNumber: number;
   streetName: string;
@@ -82,7 +83,7 @@ export interface PostProvider extends PostBase {
   headquarter?: string;
   contactName: string;
   contactPhone?: string;
-  contactEmail?: string;
+  contactMail?: string;
 }
 
 export type Provider = PostProvider & MetaData;

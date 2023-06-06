@@ -10,18 +10,25 @@ import PageHeader from 'renderer/components/globals/PageHeader';
 import SidePanel from 'renderer/components/globals/SidePanel/SidePanel';
 import Table from 'renderer/components/globals/Table/Table';
 import CreateVehicleForm from 'renderer/components/globals/SidePanel/CreateVehicleForm';
+import { Vehicle } from 'renderer/interfaces';
+import Modal from 'renderer/components/globals/Modal/Modal';
+import VehicleModalContent from 'renderer/components/globals/Modal/VehicleModalContent';
 
 const Vehicles = () => {
   const [open, setOpen] = useState<Boolean>(false);
+  const [modalOpen, setModalOpen] = useState<Boolean>(false);
+  const [vehicle, setVehicle] = useState<Vehicle | null>(null);
   const user = useAppSelector((state) => state.user.user);
 
   const handleClick = (id: string) => {
     getSingleVehicle(id);
+    setModalOpen(!modalOpen);
   };
 
   const getSingleVehicle = (id: string) => {
     let vehicle = vehicles.filter((vehicle) => vehicle._id === id)[0];
-    console.log(vehicle);
+    setVehicle(vehicle as Vehicle);
+    console.log(vehicle)
   };
 
   console.log(vehicles);
@@ -53,6 +60,16 @@ const Vehicles = () => {
         <SidePanel title="Nouveau Véhicule" open={open} setOpen={setOpen}>
           <CreateVehicleForm setOpen={setOpen} />
         </SidePanel>
+      )}
+      {modalOpen && (
+        <Modal
+          title={vehicle?.model}
+          open={modalOpen}
+          setOpen={setModalOpen}
+          type="vehicle"
+        >
+          <VehicleModalContent data={vehicle} />
+        </Modal>
       )}
     </PageContainer>
   );

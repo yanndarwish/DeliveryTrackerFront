@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAppSelector } from 'renderer/redux/hooks';
 // utils
+import { Provider } from 'renderer/interfaces';
 import { providers } from 'renderer/mock';
 import { providerColumns } from 'renderer/tableColumns';
 // components
@@ -10,17 +11,23 @@ import PageHeader from 'renderer/components/globals/PageHeader';
 import SidePanel from 'renderer/components/globals/SidePanel/SidePanel';
 import Table from 'renderer/components/globals/Table/Table';
 import CreateProviderForm from 'renderer/components/globals/SidePanel/CreateProviderForm';
+import Modal from 'renderer/components/globals/Modal/Modal';
+import ProviderModalContent from 'renderer/components/globals/Modal/ProviderModalContent';
 
 const Providers = () => {
   const [open, setOpen] = useState<Boolean>(false);
+  const [modalOpen, setModalOpen] = useState<Boolean>(false);
+  const [provider, setProvider] = useState<Provider | null>(null);
   const user = useAppSelector((state) => state.user.user);
 
   const handleClick = (id: string) => {
     getSingleProvider(id);
+    setModalOpen(!modalOpen);
   };
 
   const getSingleProvider = (id: string) => {
     let provider = providers.filter((provider) => provider._id === id)[0];
+    setProvider(provider as Provider)
     console.log(provider);
   };
 
@@ -58,6 +65,16 @@ const Providers = () => {
         >
           <CreateProviderForm setOpen={setOpen} />
         </SidePanel>
+      )}
+      {modalOpen && (
+        <Modal
+          title={provider?.name}
+          open={modalOpen}
+          setOpen={setModalOpen}
+          type="provider"
+        >
+          <ProviderModalContent data={provider} />
+        </Modal>
       )}
     </PageContainer>
   );

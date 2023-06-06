@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAppSelector } from 'renderer/redux/hooks';
 // utils
+import { Driver } from 'renderer/interfaces';
 import { drivers } from 'renderer/mock';
 import { driverColumns } from 'renderer/tableColumns';
 // components
@@ -10,18 +11,23 @@ import PageContainer from 'renderer/components/globals/PageContainer';
 import PageHeader from 'renderer/components/globals/PageHeader';
 import SidePanel from 'renderer/components/globals/SidePanel/SidePanel';
 import Table from 'renderer/components/globals/Table/Table';
+import Modal from 'renderer/components/globals/Modal/Modal';
+import DriverModalContent from 'renderer/components/globals/Modal/DriverModalContent';
 
 const Drivers = () => {
   const [open, setOpen] = useState<Boolean>(false);
+  const [modalOpen, setModalOpen] = useState<Boolean>(false);
+  const [driver, setDriver] = useState<Driver | null>(null);
   const user = useAppSelector((state) => state.user.user);
 
   const handleClick = (id: string) => {
     getSingleDriver(id);
+    setModalOpen(!modalOpen);
   };
 
   const getSingleDriver = (id: string) => {
     let driver = drivers.filter((driver) => driver._id === id)[0];
-    console.log(driver);
+    setDriver(driver as Driver)
   };
 
   console.log(drivers);
@@ -53,6 +59,16 @@ const Drivers = () => {
         <SidePanel title="Nouveau Chauffeur" open={open} setOpen={setOpen}>
           <CreateDriverForm setOpen={setOpen} />
         </SidePanel>
+      )}
+      {modalOpen && (
+        <Modal
+          title={driver?.firstName}
+          open={modalOpen}
+          setOpen={setModalOpen}
+          type="driver"
+        >
+          <DriverModalContent data={driver} />
+        </Modal>
       )}
     </PageContainer>
   );
