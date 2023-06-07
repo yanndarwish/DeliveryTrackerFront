@@ -227,6 +227,7 @@ export const groups = [
     createdBy: '644d26d04f63e40e8b4d8523',
     createdAt: '2023-05-17T09:12:40.250Z',
     updatedAt: '2023-05-17T09:12:40.250Z',
+    __v: 0,
   },
 ];
 

@@ -17,6 +17,7 @@ import DriverModalContent from 'renderer/components/globals/Modal/DriverModalCon
 const Drivers = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const [modalOpen, setModalOpen] = useState<Boolean>(false);
+  const [editOpen, setEditOpen] = useState<Boolean>(false);
   const [driver, setDriver] = useState<Driver | null>(null);
   const user = useAppSelector((state) => state.user.user);
 
@@ -55,20 +56,31 @@ const Drivers = () => {
           onClick={() => setOpen(true)}
         />
       )}
-      {open && (
-        <SidePanel title="Nouveau Chauffeur" open={open} setOpen={setOpen}>
-          <CreateDriverForm setOpen={setOpen} />
-        </SidePanel>
-      )}
       {modalOpen && (
         <Modal
           title={driver?.firstName}
           open={modalOpen}
           setOpen={setModalOpen}
+          editOpen={editOpen}
+          setEditOpen={setEditOpen}
           type="driver"
         >
           <DriverModalContent data={driver} />
         </Modal>
+      )}
+      {open && (
+        <SidePanel title="Nouveau Chauffeur" open={open} setOpen={setOpen}>
+          <CreateDriverForm setOpen={setOpen} />
+        </SidePanel>
+      )}
+      {editOpen && (
+        <SidePanel
+          title="Modifier Véhicule"
+          open={editOpen}
+          setOpen={setEditOpen}
+        >
+          <CreateDriverForm setOpen={setEditOpen} />
+        </SidePanel>
       )}
     </PageContainer>
   );

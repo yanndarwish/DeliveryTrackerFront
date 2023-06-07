@@ -17,6 +17,7 @@ import ProviderModalContent from 'renderer/components/globals/Modal/ProviderModa
 const Providers = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const [modalOpen, setModalOpen] = useState<Boolean>(false);
+  const [editOpen, setEditOpen] = useState<Boolean>(false);
   const [provider, setProvider] = useState<Provider | null>(null);
   const user = useAppSelector((state) => state.user.user);
 
@@ -27,7 +28,7 @@ const Providers = () => {
 
   const getSingleProvider = (id: string) => {
     let provider = providers.filter((provider) => provider._id === id)[0];
-    setProvider(provider as Provider)
+    setProvider(provider as Provider);
     console.log(provider);
   };
 
@@ -57,6 +58,19 @@ const Providers = () => {
           onClick={() => setOpen(true)}
         />
       )}
+
+      {modalOpen && (
+        <Modal
+          title={provider?.name}
+          open={modalOpen}
+          setOpen={setModalOpen}
+          editOpen={editOpen}
+          setEditOpen={setEditOpen}
+          type="provider"
+        >
+          <ProviderModalContent data={provider} />
+        </Modal>
+      )}
       {open && (
         <SidePanel
           title="Nouveau Commissionnaire"
@@ -66,15 +80,14 @@ const Providers = () => {
           <CreateProviderForm setOpen={setOpen} />
         </SidePanel>
       )}
-      {modalOpen && (
-        <Modal
-          title={provider?.name}
-          open={modalOpen}
-          setOpen={setModalOpen}
-          type="provider"
+      {editOpen && (
+        <SidePanel
+          title="Modifier Commissionnaire"
+          open={editOpen}
+          setOpen={setEditOpen}
         >
-          <ProviderModalContent data={provider} />
-        </Modal>
+          <CreateProviderForm setOpen={setEditOpen} />
+        </SidePanel>
       )}
     </PageContainer>
   );

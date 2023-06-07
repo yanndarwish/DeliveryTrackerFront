@@ -18,6 +18,7 @@ import ClientModalContent from 'renderer/components/globals/Modal/ClientModalCon
 const Clients = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const [modalOpen, setModalOpen] = useState<Boolean>(false);
+  const [editOpen, setEditOpen] = useState<Boolean>(false);
   const [client, setClient] = useState<Client | null>(null);
   const user = useAppSelector((state) => state.user.user);
 
@@ -56,20 +57,32 @@ const Clients = () => {
           onClick={() => setOpen(true)}
         />
       )}
+
+      {modalOpen && (
+        <Modal
+          title={client?.name}
+          open={modalOpen}
+          setOpen={setModalOpen}
+          editOpen={editOpen}
+          setEditOpen={setEditOpen}
+          type="client"
+        >
+          <ClientModalContent data={client} />
+        </Modal>
+      )}
       {open && (
         <SidePanel title="Nouveau Client" open={open} setOpen={setOpen}>
           <CreateClientForm setOpen={setOpen} />
         </SidePanel>
       )}
-      {modalOpen &&  (
-        <Modal
-          title={client?.name}
-          open={modalOpen}
-          setOpen={setModalOpen}
-          type="client"
+      {editOpen && (
+        <SidePanel
+          title="Modifier Client"
+          open={editOpen}
+          setOpen={setEditOpen}
         >
-          <ClientModalContent data={client} />
-        </Modal>
+          <CreateClientForm setOpen={setEditOpen} />
+        </SidePanel>
       )}
     </PageContainer>
   );

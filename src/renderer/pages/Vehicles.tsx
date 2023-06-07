@@ -3,6 +3,7 @@ import { useAppSelector } from 'renderer/redux/hooks';
 // utils
 import { vehicles } from 'renderer/mock';
 import { vehicleColumns } from 'renderer/tableColumns';
+import { Vehicle } from 'renderer/interfaces';
 // components
 import EmptyMessage from 'renderer/components/globals/EmptyMessage';
 import PageContainer from 'renderer/components/globals/PageContainer';
@@ -10,13 +11,13 @@ import PageHeader from 'renderer/components/globals/PageHeader';
 import SidePanel from 'renderer/components/globals/SidePanel/SidePanel';
 import Table from 'renderer/components/globals/Table/Table';
 import CreateVehicleForm from 'renderer/components/globals/SidePanel/CreateVehicleForm';
-import { Vehicle } from 'renderer/interfaces';
 import Modal from 'renderer/components/globals/Modal/Modal';
 import VehicleModalContent from 'renderer/components/globals/Modal/VehicleModalContent';
 
 const Vehicles = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const [modalOpen, setModalOpen] = useState<Boolean>(false);
+  const [editOpen, setEditOpen] = useState<Boolean>(false);
   const [vehicle, setVehicle] = useState<Vehicle | null>(null);
   const user = useAppSelector((state) => state.user.user);
 
@@ -56,20 +57,32 @@ const Vehicles = () => {
           onClick={() => setOpen(true)}
         />
       )}
-      {open && (
-        <SidePanel title="Nouveau Véhicule" open={open} setOpen={setOpen}>
-          <CreateVehicleForm setOpen={setOpen} />
-        </SidePanel>
-      )}
+
       {modalOpen && (
         <Modal
           title={vehicle?.model}
           open={modalOpen}
           setOpen={setModalOpen}
+          editOpen={editOpen}
+          setEditOpen={setEditOpen}
           type="vehicle"
         >
           <VehicleModalContent data={vehicle} />
         </Modal>
+      )}
+      {open && (
+        <SidePanel title="Nouveau Véhicule" open={open} setOpen={setOpen}>
+          <CreateVehicleForm setOpen={setOpen} />
+        </SidePanel>
+      )}
+      {editOpen && (
+        <SidePanel
+          title="Modifier Véhicule"
+          open={editOpen}
+          setOpen={setEditOpen}
+        >
+          <CreateVehicleForm setOpen={setEditOpen} />
+        </SidePanel>
       )}
     </PageContainer>
   );

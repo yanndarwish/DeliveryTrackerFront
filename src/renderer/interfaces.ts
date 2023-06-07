@@ -55,7 +55,7 @@ export interface PostDriver extends PostBase {
 export type Driver = PostDriver & MetaData;
 
 export interface PostClient extends PostBase {
-  group: string[]
+  group: string[];
   name: string;
   streetNumber: number;
   streetName: string;
@@ -100,6 +100,13 @@ export interface PostDelivery extends CreatedBy {
 }
 
 export type Delivery = PostDelivery & MetaData;
+
+export interface PostGroup extends CreatedBy {
+  name: string;
+  clients: string[];
+}
+
+export type Group = PostGroup & MetaData;
 
 export interface DeliveryParams {
   driver?: string;
