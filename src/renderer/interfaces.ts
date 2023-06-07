@@ -12,10 +12,7 @@ export interface ColumnBase {
   label: string;
   accessor: string;
   sortable: boolean;
-}
-
-export interface DeliveryColumn extends ColumnBase {
-  type?: string;
+  type: string;
 }
 
 export interface keyable {

@@ -14,6 +14,7 @@ import CreateDeliveryForm from 'renderer/components/globals/SidePanel/CreateDeli
 const Deliveries = () => {
   const [open, setOpen] = useState<Boolean>(false);
   const user = useAppSelector((state) => state.user.user);
+  // useGetProviders to be able to useSelector in the tableBody to translate the ids into usable data
 
   const handleClick = (id: string) => {
     getSingleDelivery(id);
@@ -23,6 +24,8 @@ const Deliveries = () => {
     let delivery = deliveries.filter((delivery) => delivery._id === id)[0];
     console.log(delivery);
   };
+
+
 
   console.log(deliveries);
 

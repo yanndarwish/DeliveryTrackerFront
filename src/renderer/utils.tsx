@@ -63,3 +63,7 @@ export const handleSorting = (
   }
   return data;
 };
+
+export function getKeyByValue(object: any, value: string[]) {
+  return Object.keys(object).find((key) => object[key] === value);
+}
