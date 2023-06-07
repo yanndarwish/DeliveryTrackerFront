@@ -52,7 +52,7 @@ const Table = (props: ITableProps) => {
   }, [filterObject]);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 pb-28">
       <Filter
         name={props.name}
         searchRef={searchRef}
@@ -62,7 +62,7 @@ const Table = (props: ITableProps) => {
       />
       <button
         onClick={() => exportToExcel()}
-        className="btn btn-secondary fixed bottom-8 right-9"
+        className="btn btn-secondary fixed bottom-8 right-9 z-50"
       >
         Export
       </button>
