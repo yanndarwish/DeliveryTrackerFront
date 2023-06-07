@@ -6,6 +6,15 @@ export interface IClientModalContentProps {
 }
 
 const ClientModalContent = (props: IClientModalContentProps) => {
+  const getGroups = (ids: string[] | undefined) => {
+    let localGroups: any[] = [];
+    ids?.forEach((id) => {
+      localGroups.push(groups.find((d) => d._id === id));
+    });
+
+    return localGroups.map((d) => d.name).join(', ');
+  };
+
   return (
     <div className="flex flex-col gap-6">
       <div
@@ -15,27 +24,26 @@ const ClientModalContent = (props: IClientModalContentProps) => {
       >
         {props.data?.active ? 'Actif' : 'Inactif'}
       </div>
-      <div className="flex flex-col gap-2">
-          {groups.find((c) => c._id === props.data?.group[0]) && 
+
+      {props.data?.group.length ? (
         <div>
           <label htmlFor="" className="text-base font-semibold">
             Groupe
           </label>
-          <p className="text-base capitalize">
-            {groups.find((c) => c._id === props.data?.group[0])?.name}
-          </p>
+          <p className="text-base capitalize">{getGroups(props.data.group)}</p>
         </div>
-        }
-        <div>
-          <label htmlFor="" className="text-base font-semibold">
-            Adresse
-          </label>
-          <p className="text-base capitalize">{`${
-            props.data?.streetNumber !== null ? props.data?.streetNumber : ''
-          } ${props.data?.streetName}`}</p>
-          <p className="text-base capitalize">{`${props.data?.postalCode}, ${props.data?.city}`}</p>
-          <p className="text-base capitalize">{props.data?.country}</p>
-        </div>
+      ) : (
+        ''
+      )}
+      <div>
+        <label htmlFor="" className="text-base font-semibold">
+          Adresse
+        </label>
+        <p className="text-base capitalize">{`${
+          props.data?.streetNumber !== null ? props.data?.streetNumber : ''
+        } ${props.data?.streetName}`}</p>
+        <p className="text-base capitalize">{`${props.data?.postalCode}, ${props.data?.city}`}</p>
+        <p className="text-base capitalize">{props.data?.country}</p>
       </div>
     </div>
   );

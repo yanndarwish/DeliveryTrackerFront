@@ -92,16 +92,16 @@ interface Event {
 
 export interface PostDelivery extends CreatedBy {
   provider: string;
-  driver: string;
-  vehicle: string;
+  driver: string[];
+  vehicle: string[];
   pickups: Event[];
   dropoffs: Event[];
-  hotel?: number;
+  hotel?: number | null;
 }
 
 export type Delivery = PostDelivery & MetaData;
 
-export interface PostGroup extends CreatedBy {
+export interface PostGroup extends PostBase {
   name: string;
   clients: string[];
 }

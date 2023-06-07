@@ -1,6 +1,20 @@
 import { MdCheck, MdClose } from 'react-icons/md';
-import { ColumnBase } from 'renderer/interfaces';
-import { getKeyByValue } from 'renderer/utils';
+import {
+  Client,
+  Driver,
+  ColumnBase,
+  Vehicle,
+  Provider,
+} from 'renderer/interfaces';
+import {
+  getKeyByValue,
+  getClientsNames,
+  getDriversNames,
+  getVehiclesNames,
+  getProviderName,
+  getClientsDetails,
+  formatDate,
+} from 'renderer/utils';
 import { drivers, vehicles, providers, clients } from 'renderer/mock';
 
 export interface ITableBodyProps {
@@ -32,48 +46,53 @@ const TableBody = (props: ITableBodyProps) => {
         <tr key={data._id} onClick={() => props.onClick(data._id)}>
           {props.columns.map(({ accessor, type }, i) => {
             let tData;
+            // translate data into readable strings (ids, non-formatted dates...)
             if (type === 'IDArray') {
               // find driver
               if (getKeyByValue(data, data[accessor]) === 'driver') {
-                // find driver in drivers by id
                 let ids = data[accessor] as string[];
-                let localDrivers: any[] = [];
-                ids.forEach((id) => {
-                  localDrivers.push(drivers.find((d) => d._id === id));
-                });
-
-                tData = localDrivers.map((d) => d.firstName).join(', ');
+                tData = getDriversNames(ids, drivers as Driver[]);
                 // find vehicle
               } else if (getKeyByValue(data, data[accessor]) === 'vehicle') {
                 let ids = data[accessor] as string[];
-                let localVehicles: any[] = [];
-                ids.forEach((id) => {
-                  localVehicles.push(vehicles.find((d) => d._id === id));
-                });
-
-                tData = localVehicles
-                  .map((d) => `${d.model} - ${d.immatriculation}`)
-                  .join(', ');
-                  // find client
+                tData = getVehiclesNames(ids, vehicles as Vehicle[]);
+                // find client
               } else if (getKeyByValue(data, data[accessor]) === 'clients') {
                 let ids = data[accessor] as string[];
-                let localClients: any[] = [];
-                ids.forEach((id) => {
-                  localClients.push(clients.find((d) => d._id === id));
-                });
-
-                tData = localClients
-                  .map((d) => d.name)
-                  .join(', ');
+                tData = getClientsNames(ids, clients as Client[]);
               }
-              // find provider
             } else if (type === 'IDString') {
+              // find provider
               if (getKeyByValue(data, data[accessor]) === 'provider') {
-                // find provider in providers by id
-                let provider = providers.find(p => p._id === data[accessor])
-
-                tData = provider?.name;
-            }} else {
+                tData = getProviderName(
+                  data[accessor],
+                  providers as Provider[]
+                );
+                // find pickup client
+              } else if (accessor === 'pickup-client') {
+                let ids: string[] = [];
+                data.pickups.forEach((pickup: { client: string }) => {
+                  ids.push(pickup.client);
+                });
+                tData = getClientsDetails(ids, clients as Client[]);
+                // find dropoff client
+              } else if (accessor === 'dropoff-client') {
+                let ids: string[] = [];
+                data.dropoffs.forEach((dropoff: { client: string }) => {
+                  ids.push(dropoff.client);
+                });
+                tData = getClientsDetails(ids, clients as Client[]);
+              }
+            } else if (type === 'date') {
+              // find pickup date
+              if (accessor === 'pickup-date') {
+                let dates: string[] = [];
+                data.pickups.forEach((pickup: { date: string }) => {
+                  dates.push(formatDate(pickup));
+                });
+                tData = dates.join(', ');
+              }
+            } else {
               tData = data[accessor] !== null ? data[accessor] : '——';
               tData =
                 tData === true

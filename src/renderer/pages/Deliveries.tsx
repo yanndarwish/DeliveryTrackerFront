@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useAppSelector } from 'renderer/redux/hooks';
 // utils
 import { deliveries } from 'renderer/mock';
+import { Delivery } from 'renderer/interfaces';
 import { deliveryColumns } from 'renderer/tableColumns';
 // components
 import EmptyMessage from 'renderer/components/globals/EmptyMessage';
@@ -10,22 +11,27 @@ import PageHeader from 'renderer/components/globals/PageHeader';
 import SidePanel from 'renderer/components/globals/SidePanel/SidePanel';
 import Table from 'renderer/components/globals/Table/Table';
 import CreateDeliveryForm from 'renderer/components/globals/SidePanel/CreateDeliveryForm';
+import Modal from 'renderer/components/globals/Modal/Modal';
+import DeliveryModalContent from 'renderer/components/globals/Modal/DeliveryModalContent';
 
 const Deliveries = () => {
   const [open, setOpen] = useState<Boolean>(false);
+  const [modalOpen, setModalOpen] = useState<Boolean>(false);
+  const [editOpen, setEditOpen] = useState<Boolean>(false);
+  const [delivery, setDelivery] = useState<Delivery | null>(null)
   const user = useAppSelector((state) => state.user.user);
   // useGetProviders to be able to useSelector in the tableBody to translate the ids into usable data
 
   const handleClick = (id: string) => {
     getSingleDelivery(id);
+    setModalOpen(!modalOpen)
   };
 
   const getSingleDelivery = (id: string) => {
-    let delivery = deliveries.filter((delivery) => delivery._id === id)[0];
+    let delivery = deliveries.find((delivery) => delivery._id === id);
+    setDelivery(delivery as Delivery)
     console.log(delivery);
   };
-
-
 
   console.log(deliveries);
 
@@ -56,9 +62,26 @@ const Deliveries = () => {
           onClick={() => setOpen(true)}
         />
       )}
+      {modalOpen && (
+        <Modal
+          title="Livraison"
+          open={modalOpen}
+          setOpen={setModalOpen}
+          editOpen={editOpen}
+          setEditOpen={setEditOpen}
+          type="vehicle"
+        >
+          <DeliveryModalContent data={delivery} />
+        </Modal>
+      )}
       {open && (
         <SidePanel title="Nouvelle Livraison" open={open} setOpen={setOpen}>
           <CreateDeliveryForm setOpen={setOpen} />
+        </SidePanel>
+      )}
+      {editOpen && (
+        <SidePanel title="Modifier Livraison" open={editOpen} setOpen={setEditOpen}>
+          <CreateDeliveryForm setOpen={setEditOpen} />
         </SidePanel>
       )}
     </PageContainer>

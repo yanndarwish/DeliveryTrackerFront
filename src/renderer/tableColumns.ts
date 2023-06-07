@@ -2,6 +2,12 @@ import { ColumnBase } from './interfaces';
 
 export const deliveryColumns: ColumnBase[] = [
   {
+    label: 'Commissionnaire',
+    accessor: 'provider',
+    type: 'IDString',
+    sortable: true,
+  },
+  {
     label: 'Chauffeurs',
     accessor: 'driver',
     type: 'IDArray',
@@ -15,13 +21,19 @@ export const deliveryColumns: ColumnBase[] = [
   },
   {
     label: 'Date',
-    accessor: 'pickups-date',
-    type: 'objectArray',
+    accessor: 'pickup-date',
+    type: 'date',
     sortable: true,
   },
   {
-    label: 'Commissionnaire',
-    accessor: 'provider',
+    label: 'Retraits',
+    accessor: 'pickup-client',
+    type: 'IDString',
+    sortable: true,
+  },
+  {
+    label: 'Dépôts',
+    accessor: 'dropoff-client',
     type: 'IDString',
     sortable: true,
   },

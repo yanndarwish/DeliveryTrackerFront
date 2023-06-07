@@ -243,7 +243,7 @@ export const deliveries = [
         client: '644faaeaf404632bac4a2d66',
       },
       {
-        date: '2023-03-04',
+        date: '2023-03-04T22:00:00.000Z',
         client: '646499017a04be4ec055c15e',
       },
     ],
@@ -253,7 +253,7 @@ export const deliveries = [
         client: '646499017a04be4ec055c15f',
       },
     ],
-    hotel: null,
+    hotel: 16,
     createdBy: '644d26d04f63e40e8b4d8523',
     createdAt: '2023-05-18T12:52:30.563Z',
     updatedAt: '2023-05-18T12:52:30.563Z',
