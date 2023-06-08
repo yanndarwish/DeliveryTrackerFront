@@ -20,22 +20,34 @@ export const handleFiltering = (data: any[], filters: keyable) => {
     Object.keys(filters).forEach((filter) => {
       if (filters[filter] === 'all') return;
 
+      if (filter === 'client') {
+        let clients: string[] = [];
+        item.pickups.forEach((pickup: { client: string }) => {
+          clients.push(pickup.client);
+        });
+        item.dropoffs.forEach((dropoff: { client: string }) => {
+          clients.push(dropoff.client);
+        });
+        if (!clients.includes(filters[filter])) state = false;
+      }
+      // check if filters[filter] is in item[filter] array
+      else if (item[filter] && Array.isArray(item[filter])) {
+        if (!item[filter].includes(filters[filter].toLowerCase()))
+          state = false;
+      }
       // if filters[filter] == others return !== france
-      if (filter === 'country' && filters[filter] === 'other') {
-        state = item[filter].toLowerCase() !== 'france';
-        return;
-      }
-
-      // convert array of ids to id string
-      if (Array.isArray(item[filter])) {
-        item[filter] = item[filter].toString();
-      }
-
-      if (
+      else if (filter === 'country') {
+        if (filters[filter] === 'other') {
+          state = item[filter].toLowerCase() !== 'france';
+        } else {
+          state = item[filter].toLowerCase() === 'france';
+        }
+      } else if (
         filters[filter].toString().toLowerCase() !==
         item[filter].toString().toLowerCase()
-      )
+      ) {
         state = false;
+      }
     });
     return state;
   });
@@ -84,21 +96,24 @@ export const getClientsNames = (
   return localClients.map((d) => d.name).join(', ');
 };
 
-export const getClientsDetails = (ids: string[] | undefined, clients: Client[]) => {
-    let localClients: any[] = [];
-    ids?.forEach((id) => {
-      localClients.push(clients.find((d) => d._id === id));
-    });
+export const getClientsDetails = (
+  ids: string[] | undefined,
+  clients: Client[]
+) => {
+  let localClients: any[] = [];
+  ids?.forEach((id) => {
+    localClients.push(clients.find((d) => d._id === id));
+  });
 
-    return localClients
-      .map(
-        (d) =>
-          `${d.name} - ${d.streetNumber ? d.streetNumber : ''} ${
-            d.streetName
-          } ${d.city} ${d.country}`
-      )
-      .join(', ');
-  };
+  return localClients
+    .map(
+      (d) =>
+        `${d.name} - ${d.streetNumber ? d.streetNumber : ''} ${d.streetName} ${
+          d.city
+        } ${d.country}`
+    )
+    .join(', ');
+};
 
 export const getDriversNames = (
   ids: string[] | undefined,
@@ -126,7 +141,10 @@ export const getVehiclesNames = (
     .join(', ');
 };
 
-export const getProviderName = (id: string | undefined, providers: Provider[]) => {
+export const getProviderName = (
+  id: string | undefined,
+  providers: Provider[]
+) => {
   return providers.find((provider) => provider._id === id)?.name;
 };
 

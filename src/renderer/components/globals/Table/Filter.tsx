@@ -1,6 +1,7 @@
 import ClientsFilter from './filters/ClientsFilter';
 import { TableNames } from 'renderer/interfaces';
 import StatusFilter from './filters/StatusFilter';
+import DeliveriesFilter from './filters/DeliveriesFilter';
 
 export interface IFilterProps {
   searchRef: React.RefObject<HTMLInputElement>;
@@ -52,6 +53,12 @@ const Filter = (props: IFilterProps) => {
           )}
           {props.name === 'clients' && (
             <ClientsFilter
+              filterObject={props.filterObject}
+              setfilterObject={props.setfilterObject}
+            />
+          )}
+          {props.name === 'deliveries' && (
+            <DeliveriesFilter
               filterObject={props.filterObject}
               setfilterObject={props.setfilterObject}
             />
