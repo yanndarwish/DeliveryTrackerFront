@@ -142,6 +142,7 @@ export const clientColumns: ColumnBase[] = [
     sortable: true,
   },
   { label: 'Pays', accessor: 'country', type: 'common', sortable: true },
+  { label: 'Groupe', accessor: 'group', type: 'IDArray', sortable: true },
   { label: 'Actif', accessor: 'active', type: 'common', sortable: true },
 ];
 

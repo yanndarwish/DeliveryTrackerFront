@@ -1,4 +1,4 @@
-import { keyable, Client, Driver, Vehicle, Provider } from './interfaces';
+import { keyable, Client, Driver, Vehicle, Provider, Group } from './interfaces';
 
 export const handleSearching = (data: any[], string: string) => {
   const filtered = data.filter((item) => {
@@ -139,6 +139,15 @@ export const getVehiclesNames = (
   return localVehicles
     .map((d) => `${d.model} - ${d.immatriculation}`)
     .join(', ');
+};
+
+export const getGroupsNames = (ids: string[] | undefined, groups: Group[]) => {
+  let localGroups: any[] = [];
+  ids?.forEach((id) => {
+    localGroups.push(groups.find((d) => d._id === id));
+  });
+
+  return localGroups.map((d) => d.name).join(', ');
 };
 
 export const getProviderName = (

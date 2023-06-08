@@ -14,8 +14,9 @@ import {
   getProviderName,
   getClientsDetails,
   formatDate,
+  getGroupsNames,
 } from 'renderer/utils';
-import { drivers, vehicles, providers, clients } from 'renderer/mock';
+import { drivers, vehicles, providers, clients, groups } from 'renderer/mock';
 
 export interface ITableBodyProps {
   tableData: any[];
@@ -60,6 +61,9 @@ const TableBody = (props: ITableBodyProps) => {
               } else if (getKeyByValue(data, data[accessor]) === 'clients') {
                 let ids = data[accessor] as string[];
                 tData = getClientsNames(ids, clients as Client[]);
+              } else if (getKeyByValue(data, data[accessor]) === 'group') {
+                let ids = data[accessor] as string[];
+                tData = getGroupsNames(ids, groups);
               }
             } else if (type === 'IDString') {
               // find provider

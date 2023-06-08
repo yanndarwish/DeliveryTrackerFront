@@ -1,19 +1,13 @@
 import { Client } from 'renderer/interfaces';
 import { groups } from 'renderer/mock';
+import { getGroupsNames } from 'renderer/utils';
 
 export interface IClientModalContentProps {
   data: Client | null;
 }
 
 const ClientModalContent = (props: IClientModalContentProps) => {
-  const getGroups = (ids: string[] | undefined) => {
-    let localGroups: any[] = [];
-    ids?.forEach((id) => {
-      localGroups.push(groups.find((d) => d._id === id));
-    });
-
-    return localGroups.map((d) => d.name).join(', ');
-  };
+  
 
   return (
     <div className="flex flex-col gap-6">
@@ -30,7 +24,7 @@ const ClientModalContent = (props: IClientModalContentProps) => {
           <label htmlFor="" className="text-base font-semibold">
             Groupe
           </label>
-          <p className="text-base capitalize">{getGroups(props.data.group)}</p>
+          <p className="text-base capitalize">{getGroupsNames(props.data.group, groups)}</p>
         </div>
       ) : (
         ''
