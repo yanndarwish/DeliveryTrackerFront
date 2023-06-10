@@ -7,9 +7,10 @@ export interface IModalProps {
   title: String | undefined;
   open: Boolean;
   setOpen: (state: Boolean) => void;
-  editOpen: Boolean;
+  editOpen?: Boolean;
   setEditOpen: (state: Boolean) => void;
-  type: String;
+  type?: String;
+  action?: () => void
 }
 
 const Modal = (props: IModalProps) => {
@@ -38,7 +39,7 @@ const Modal = (props: IModalProps) => {
       {/* dialog */}
       <div className="flex flex-col p-8 gap-8 bg-base-100 max-h-[80%] min-w-[20rem] max-w-[80%] overflow-scroll z-50 rounded-[0.5rem]">
         {/* header */}
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center gap-6">
           <h2 className="text-3xl font-medium uppercase">{props.title}</h2>
           <button
             className="btn btn-circle btn-ghost"
@@ -52,13 +53,24 @@ const Modal = (props: IModalProps) => {
         {props.children}
         {/* footer */}
         <div className="flex justify-end items-center">
-          <button
+          {props.type === 'edit' && (
+            <button
               onClick={() => handleEditClick()}
-            className="btn btn-warning btn-outline gap-2"
-          >
-            Modifier
-            <BsPencilFill size={18} />
-          </button>
+              className="btn btn-warning btn-outline gap-2"
+            >
+              Modifier
+              <BsPencilFill size={18} />
+            </button>
+          )}
+          {props.type === 'delete' && (
+            <button
+              onClick={() => props.action?.()}
+              className="btn btn-error btn-outline gap-2"
+            >
+              Supprimer
+              <IoMdTrash size={18} />
+            </button>
+          )}
         </div>
       </div>
     </div>

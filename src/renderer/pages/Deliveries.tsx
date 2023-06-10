@@ -13,6 +13,7 @@ import Table from 'renderer/components/globals/Table/Table';
 import CreateDeliveryForm from 'renderer/components/globals/SidePanel/CreateDeliveryForm';
 import Modal from 'renderer/components/globals/Modal/Modal';
 import DeliveryModalContent from 'renderer/components/globals/Modal/DeliveryModalContent';
+import EditDeliveryForm from 'renderer/components/globals/SidePanel/Edit/EditDeliveryForm';
 
 const Deliveries = () => {
   const [open, setOpen] = useState<Boolean>(false);
@@ -69,7 +70,7 @@ const Deliveries = () => {
           setOpen={setModalOpen}
           editOpen={editOpen}
           setEditOpen={setEditOpen}
-          type="vehicle"
+          type="edit"
         >
           <DeliveryModalContent data={delivery} />
         </Modal>
@@ -81,7 +82,7 @@ const Deliveries = () => {
       )}
       {editOpen && (
         <SidePanel title="Modifier Livraison" open={editOpen} setOpen={setEditOpen}>
-          <CreateDeliveryForm setOpen={setEditOpen} />
+          <EditDeliveryForm setOpen={setEditOpen} />
         </SidePanel>
       )}
     </PageContainer>

@@ -14,6 +14,7 @@ import PageHeader from 'renderer/components/globals/PageHeader';
 import EmptyMessage from 'renderer/components/globals/EmptyMessage';
 import Modal from 'renderer/components/globals/Modal/Modal';
 import ClientModalContent from 'renderer/components/globals/Modal/ClientModalContent';
+import EditClientForm from 'renderer/components/globals/SidePanel/Edit/EditClientForm';
 
 const Clients = () => {
   const [open, setOpen] = useState<Boolean>(false);
@@ -65,7 +66,7 @@ const Clients = () => {
           setOpen={setModalOpen}
           editOpen={editOpen}
           setEditOpen={setEditOpen}
-          type="client"
+          type="edit"
         >
           <ClientModalContent data={client} />
         </Modal>
@@ -81,7 +82,7 @@ const Clients = () => {
           open={editOpen}
           setOpen={setEditOpen}
         >
-          <CreateClientForm setOpen={setEditOpen} />
+          <EditClientForm setOpen={setEditOpen} client={client}/>
         </SidePanel>
       )}
     </PageContainer>

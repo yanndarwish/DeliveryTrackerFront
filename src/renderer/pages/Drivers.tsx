@@ -13,6 +13,7 @@ import SidePanel from 'renderer/components/globals/SidePanel/SidePanel';
 import Table from 'renderer/components/globals/Table/Table';
 import Modal from 'renderer/components/globals/Modal/Modal';
 import DriverModalContent from 'renderer/components/globals/Modal/DriverModalContent';
+import EditDriverForm from 'renderer/components/globals/SidePanel/Edit/EditDriverForm';
 
 const Drivers = () => {
   const [open, setOpen] = useState<Boolean>(false);
@@ -63,7 +64,7 @@ const Drivers = () => {
           setOpen={setModalOpen}
           editOpen={editOpen}
           setEditOpen={setEditOpen}
-          type="driver"
+          type="edit"
         >
           <DriverModalContent data={driver} />
         </Modal>
@@ -79,7 +80,7 @@ const Drivers = () => {
           open={editOpen}
           setOpen={setEditOpen}
         >
-          <CreateDriverForm setOpen={setEditOpen} />
+          <EditDriverForm setOpen={setEditOpen} />
         </SidePanel>
       )}
     </PageContainer>

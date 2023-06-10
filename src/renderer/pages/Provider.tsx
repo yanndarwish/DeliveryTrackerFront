@@ -13,6 +13,7 @@ import Table from 'renderer/components/globals/Table/Table';
 import CreateProviderForm from 'renderer/components/globals/SidePanel/CreateProviderForm';
 import Modal from 'renderer/components/globals/Modal/Modal';
 import ProviderModalContent from 'renderer/components/globals/Modal/ProviderModalContent';
+import EditProviderForm from 'renderer/components/globals/SidePanel/Edit/EditProviderForm';
 
 const Providers = () => {
   const [open, setOpen] = useState<Boolean>(false);
@@ -66,7 +67,7 @@ const Providers = () => {
           setOpen={setModalOpen}
           editOpen={editOpen}
           setEditOpen={setEditOpen}
-          type="provider"
+          type="edit"
         >
           <ProviderModalContent data={provider} />
         </Modal>
@@ -86,7 +87,7 @@ const Providers = () => {
           open={editOpen}
           setOpen={setEditOpen}
         >
-          <CreateProviderForm setOpen={setEditOpen} />
+          <EditProviderForm setOpen={setEditOpen} />
         </SidePanel>
       )}
     </PageContainer>

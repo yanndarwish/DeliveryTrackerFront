@@ -13,6 +13,7 @@ import Table from 'renderer/components/globals/Table/Table';
 import CreateVehicleForm from 'renderer/components/globals/SidePanel/CreateVehicleForm';
 import Modal from 'renderer/components/globals/Modal/Modal';
 import VehicleModalContent from 'renderer/components/globals/Modal/VehicleModalContent';
+import EditVehicleForm from 'renderer/components/globals/SidePanel/Edit/EditVehicleForm';
 
 const Vehicles = () => {
   const [open, setOpen] = useState<Boolean>(false);
@@ -65,7 +66,7 @@ const Vehicles = () => {
           setOpen={setModalOpen}
           editOpen={editOpen}
           setEditOpen={setEditOpen}
-          type="vehicle"
+          type="edit"
         >
           <VehicleModalContent data={vehicle} />
         </Modal>
@@ -81,7 +82,7 @@ const Vehicles = () => {
           open={editOpen}
           setOpen={setEditOpen}
         >
-          <CreateVehicleForm setOpen={setEditOpen} />
+          <EditVehicleForm setOpen={setEditOpen} />
         </SidePanel>
       )}
     </PageContainer>

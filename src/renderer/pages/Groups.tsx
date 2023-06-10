@@ -13,6 +13,7 @@ import Table from 'renderer/components/globals/Table/Table';
 import CreateGroupForm from 'renderer/components/globals/SidePanel/CreateGroupForm';
 import Modal from 'renderer/components/globals/Modal/Modal';
 import GroupModalContent from 'renderer/components/globals/Modal/GroupModalContent';
+import EditGroupForm from 'renderer/components/globals/SidePanel/Edit/EditGroupForm';
 
 const Groups = () => {
   const [open, setOpen] = useState<Boolean>(false);
@@ -64,7 +65,7 @@ const Groups = () => {
           setOpen={setModalOpen}
           editOpen={editOpen}
           setEditOpen={setEditOpen}
-          type="vehicle"
+          type="edit"
         >
           <GroupModalContent data={group} />
         </Modal>
@@ -80,7 +81,7 @@ const Groups = () => {
           open={editOpen}
           setOpen={setEditOpen}
         >
-          <CreateGroupForm setOpen={setEditOpen} />
+          <EditGroupForm setOpen={setEditOpen} />
         </SidePanel>
       )}
     </PageContainer>
