@@ -162,3 +162,18 @@ export const formatDate = (object: any | undefined) => {
     object.date.split('T')[0] + ' à ' + object.date.split('T')[1]?.slice(0, 5)
   );
 };
+
+export const months = [
+  { value: 1, text: 'Janvier' },
+  { value: 2, text: 'Février' },
+  { value: 3, text: 'Mars' },
+  { value: 4, text: 'Avril' },
+  { value: 5, text: 'Mai' },
+  { value: 6, text: 'Juin' },
+  { value: 7, text: 'Juillet' },
+  { value: 8, text: 'Août' },
+  { value: 9, text: 'Septembre' },
+  { value: 10, text: 'Octobre' },
+  { value: 11, text: 'Novembre' },
+  { value: 12, text: 'Décembre' },
+];
