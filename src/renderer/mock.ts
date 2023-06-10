@@ -239,6 +239,256 @@ export const deliveries = [
     vehicle: ['644fa1882d7405c35d6f9301'],
     pickups: [
       {
+        date: '2023-06-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d66',
+      },
+      {
+        date: '2023-06-04T22:00:00.000Z',
+        client: '646499017a04be4ec055c15e',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-06-04T22:00:00.000Z',
+        client: '646499017a04be4ec055c15f',
+      },
+    ],
+    hotel: 16,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '644e4bf736cd4b960ae62b31',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9302'],
+    pickups: [
+      {
+        date: '2023-06-08T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d86',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-06-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d67',
+      },
+    ],
+    hotel: null,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '64661f8e53306d0b0f4e3b10',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9301'],
+    pickups: [
+      {
+        date: '2023-05-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d66',
+      },
+      {
+        date: '2023-05-04T22:00:00.000Z',
+        client: '646499017a04be4ec055c15e',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-05-04T22:00:00.000Z',
+        client: '646499017a04be4ec055c15f',
+      },
+    ],
+    hotel: 16,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '644e4bf736cd4b960ae62b31',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9302'],
+    pickups: [
+      {
+        date: '2023-05-08T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d86',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-05-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d67',
+      },
+    ],
+    hotel: null,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '64661f8e53306d0b0f4e3b10',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9301'],
+    pickups: [
+      {
+        date: '2023-05-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d66',
+      },
+      {
+        date: '2023-05-04T22:00:00.000Z',
+        client: '646499017a04be4ec055c15e',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-05-04T22:00:00.000Z',
+        client: '646499017a04be4ec055c15f',
+      },
+    ],
+    hotel: 16,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '644e4bf736cd4b960ae62b31',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9302'],
+    pickups: [
+      {
+        date: '2023-05-08T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d86',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-05-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d67',
+      },
+    ],
+    hotel: null,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '64661f8e53306d0b0f4e3b10',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9301'],
+    pickups: [
+      {
+        date: '2023-04-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d66',
+      },
+      {
+        date: '2023-04-04T22:00:00.000Z',
+        client: '646499017a04be4ec055c15e',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-04-04T22:00:00.000Z',
+        client: '646499017a04be4ec055c15f',
+      },
+    ],
+    hotel: 16,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '644e4bf736cd4b960ae62b31',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9302'],
+    pickups: [
+      {
+        date: '2023-04-08T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d86',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-04-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d67',
+      },
+    ],
+    hotel: null,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '64661f8e53306d0b0f4e3b10',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9301'],
+    pickups: [
+      {
+        date: '2023-04-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d66',
+      },
+      {
+        date: '2023-04-04T22:00:00.000Z',
+        client: '646499017a04be4ec055c15e',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-04-04T22:00:00.000Z',
+        client: '646499017a04be4ec055c15f',
+      },
+    ],
+    hotel: 16,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '644e4bf736cd4b960ae62b31',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9302'],
+    pickups: [
+      {
+        date: '2023-03-08T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d86',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-03-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d67',
+      },
+    ],
+    hotel: null,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '64661f8e53306d0b0f4e3b10',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9301'],
+    pickups: [
+      {
         date: '2023-03-04T22:00:00.000Z',
         client: '644faaeaf404632bac4a2d66',
       },
@@ -273,6 +523,156 @@ export const deliveries = [
     dropoffs: [
       {
         date: '2023-03-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d67',
+      },
+    ],
+    hotel: null,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '64661f8e53306d0b0f4e3b10',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9301'],
+    pickups: [
+      {
+        date: '2023-02-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d66',
+      },
+      {
+        date: '2023-02-04T22:00:00.000Z',
+        client: '646499017a04be4ec055c15e',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-02-04T22:00:00.000Z',
+        client: '646499017a04be4ec055c15f',
+      },
+    ],
+    hotel: 16,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '644e4bf736cd4b960ae62b31',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9302'],
+    pickups: [
+      {
+        date: '2023-02-08T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d86',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-02-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d67',
+      },
+    ],
+    hotel: null,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '64661f8e53306d0b0f4e3b10',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9301'],
+    pickups: [
+      {
+        date: '2023-01-10T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d66',
+      },
+      {
+        date: '2023-01-10T22:00:00.000Z',
+        client: '646499017a04be4ec055c15e',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-01-10T22:00:00.000Z',
+        client: '646499017a04be4ec055c15f',
+      },
+    ],
+    hotel: 16,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '644e4bf736cd4b960ae62b31',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9302'],
+    pickups: [
+      {
+        date: '2023-01-08T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d86',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2023-01-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d67',
+      },
+    ],
+    hotel: null,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '64661f8e53306d0b0f4e3b10',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9301'],
+    pickups: [
+      {
+        date: '2022-12-10T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d66',
+      },
+      {
+        date: '2022-12-10T22:00:00.000Z',
+        client: '646499017a04be4ec055c15e',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2022-12-11T22:00:00.000Z',
+        client: '646499017a04be4ec055c15f',
+      },
+    ],
+    hotel: 16,
+    createdBy: '644d26d04f63e40e8b4d8523',
+    createdAt: '2023-05-18T12:52:30.563Z',
+    updatedAt: '2023-05-18T12:52:30.563Z',
+    __v: 0,
+  },
+  {
+    _id: '644e4bf736cd4b960ae62b31',
+    provider: '644fda23677c1d301babf256',
+    driver: ['644d4c78def9e1d055414264', '644d4c78def9e1d055414265'],
+    vehicle: ['644fa1882d7405c35d6f9302'],
+    pickups: [
+      {
+        date: '2022-12-04T22:00:00.000Z',
+        client: '644faaeaf404632bac4a2d86',
+      },
+    ],
+    dropoffs: [
+      {
+        date: '2022-12-08T22:00:00.000Z',
         client: '644faaeaf404632bac4a2d67',
       },
     ],
